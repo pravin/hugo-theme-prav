@@ -1,0 +1,31 @@
+baseURL = "https://cto.me.uk/"
+languageCode = "en-gb"
+title = "Hugo Theme - Prav"
+theme = "prav"
+
+pygmentsCodeFences = "true"
+pygmentsStyle = "perldoc"
+
+#googleanalytics = ""
+#disqusShortname = ""
+
+# Below settings are used throughout the theme. Please update
+[params]
+  title = "Hugo Theme - Prav"
+  tagline = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  author = "Pravin Paratey"
+
+[social]
+  email = "mailto:pravin@paratey.com"
+  facebook = "https://www.facebook.com/pravin.paratey"
+  twitter = "http://twitter.com/pravin"
+  medium = "https://www.medium.com/@pravin"
+  github = "https://github.com/pravin"
+  linkedin = "http://uk.linkedin.com/in/pravinp"
+
+
+# Set unsafe mode to allow markdownify to work with goldmark
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
