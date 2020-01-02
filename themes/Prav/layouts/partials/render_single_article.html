@@ -1,0 +1,16 @@
+{{ if or (.Date) (ne .Params.Kind "page") }}
+<div class="date">
+    <time pubdate="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+    <span class="author">by Pravin Paratey</span>
+</div>
+{{ end }}
+<article>
+    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+    <div class="tags">
+        {{ range .Params.tags }}
+        {{ $name := . }}
+        <a href="/tags/{{ $name | urlize }}" class="pure-button">{{ $name }}</a>
+        {{ end }}
+    </div>
+    {{ replace .Content "<table>" "<table class='pure-table pure-table-striped'>" | markdownify}}
+</article>

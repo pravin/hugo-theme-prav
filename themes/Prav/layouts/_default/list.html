@@ -1,0 +1,21 @@
+{{ define "main" }}
+<!-- CONTENT -->
+<div class="pure-u-1">
+    <h1 style="text-align: center">~ {{ humanize .Title }} ~</h1>
+</div>
+<div class="pure-g">
+    {{ range .Data.Pages }}
+    <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-3">
+        <article class="home">
+            <time>{{ .Date.Format "Jan 2 2006" }}</time>
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            {{ if .Params.image }}
+            <img src="/img/feature/{{ .Params.image }}" class="pure-img" alt="{{ .Title }}">
+            {{ end }}
+            <p>{{ .Description | markdownify }}</p>
+        </article>
+    </div>
+    {{ end }}
+</div>
+
+{{ end }}

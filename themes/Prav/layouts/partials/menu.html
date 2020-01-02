@@ -1,0 +1,69 @@
+<div id="navbar" class="pure-menu pure-menu-open pure-menu-horizontal pure-menu-scrollable">
+    <a href="/" class="pure-menu-heading">{{ .Site.Params.title }}</a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+            <a href="/posts" class="pure-menu-link">
+                <i class="fa fa-archive"></i>
+                Articles
+            </a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/tags" class="pure-menu-link">
+                <i class="fas fa-comments"></i>
+                Categories
+            </a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/about" class="pure-menu-link">
+                <i class="fas fa-smile"></i>
+                About
+            </a>
+        </li>
+    </ul>
+    <ul class="pure-menu-list pull-right">
+        {{ if .Site.Social.github }}
+        <li class="pure-menu-item">
+            <a href="{{ .Site.Social.github }}" title="Github" class="pure-menu-link">
+                <i class="fab fa-github"></i>
+            </a>
+        </li>
+        {{ end }}
+        {{ if .Site.Social.twitter }}
+        <li class="pure-menu-item">
+            <a href="{{ .Site.Social.twitter }}" title="@pravin" class="pure-menu-link">
+                <i class="fab fa-twitter-square"></i>
+            </a>
+        </li>
+        {{ end }}
+        {{ if .Site.Social.linkedin }}
+        <li class="pure-menu-item">
+            <a href="{{ .Site.Social.linkedin }}" title="Linked In" class="pure-menu-link">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </li>
+        {{ end }}
+        {{ if .Site.Social.medium }}
+        <li class="pure-menu-item">
+            <a href="{{ .Site.Social.medium }}" title="Medium" class="pure-menu-link">
+                <i class="fab fa-medium"></i>
+            </a>
+        </li>
+        {{ end }}
+        {{ if .Site.Social.facebook }}
+        <li class="pure-menu-item">
+            <a href="{{ .Site.Social.facebook }}" title="Facebook" class="pure-menu-link">
+                <i class="fab fa-facebook"></i>
+            </a>
+        </li>
+        {{ end }}
+        <li class="pure-menu-item">
+            <a href="/atom.xml" title="Atom Feed" class="pure-menu-link">
+                <i class="fas fa-rss-square"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="pure-u-1">
+    <div class="pad">
+    </div>
+</div>

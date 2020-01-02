@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{- partial "head.html" . -}}
+    <body onload="prettyPrint()">
+        <div class="container">
+
+            {{- partial "menu.html" . -}}
+            
+            <div class="pure-g">
+                {{- block "main" . }}{{- end }}
+
+                {{ if (or (eq .Page.Kind "page") (eq .URL "/")) }}
+                {{- block "sidebar" . }}
+                    {{- partial "sidebar.html" . -}}
+                {{- end }}
+                {{ end }}
+            </div>
+            
+            {{- partial "footer.html" . -}}
+
+        </div>
+    </body>
+</html>

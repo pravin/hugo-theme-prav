@@ -1,0 +1,345 @@
+html, body, button, input, select, textarea, .pure-g [class *="pure-u"] {
+    font-family: Merriweather, Palatino, serif;
+}
+
+body {
+    background: #999 url(/img/bg-dk.jpg);
+}
+
+table, img {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#navbar {
+    background: #000;
+    color: #999;
+    -webkit-box-shadow: 0 0 5px #666;
+    box-shadow: 0 0 5px #666;
+    font-family: "Fira Sans Condensed", sans-serif;
+}
+
+#navbar a {
+    color: #999;
+}
+
+#navbar a:hover {
+    color: #dcc;
+    background: #433;
+}
+
+#navbar .pure-menu-heading {
+    font-size: 1.5em;
+    text-transform: none;
+}
+
+#blurb {
+    padding: 21px 0 21px 120px;
+    font-style: italic;
+    text-shadow: 0 1px 0 rgba(225, 225, 225, 0.5);
+    background: url(/img/blurb-arrow.png) 60px -5px no-repeat;
+}
+
+.pure-menu-item .pure-menu-link i {
+    vertical-align: middle;
+}
+
+.pad {
+    padding: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+    .pad {
+        padding: 0.1em;
+    }
+}
+
+#content {
+    margin: 0 auto;
+    line-height: 1.8em;
+}
+
+#content li {
+    margin: 1em 0;
+}
+
+#sidebar .pure-menu-item a {
+    color: #900;
+}
+
+#sidebar .pure-menu-item a small {
+    color: #444;
+}
+
+footer {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    padding: 1em;
+}
+
+article {
+    padding: 0 2em;
+    background: #eee url(/img/bg.png);
+    border: 1px solid #999;
+    -webkit-box-shadow: 0 0 5px #999;
+    box-shadow: 0 0 5px #999;
+}
+
+article.home {
+    margin: 0.4em;
+    padding: 2em 1.5em;
+}
+
+@media only screen and (max-width: 600px) {
+    article.home {
+        margin: 1px 0em;
+        border: none;
+    }
+}
+
+article.home h3 {
+    margin-top: 0;
+}
+
+article.home time {
+    font-size: 0.8em;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #222;
+    background-color: #ddd;
+    float: right;
+    margin: -32px -24px;
+    padding: 4px;
+    width: 36px;
+    box-shadow: 0 0 2px #666;
+}
+
+section.toc h2 {
+    padding: 0;
+    margin: 0.5em 0;
+}
+
+section.toc h3 {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.date {
+    color: #555;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    font-size: 0.8em;
+    padding-right: 1em;
+}
+
+.tags {
+    font-size: 0.8em;
+}
+
+.pure-button {
+    color: #fff;
+    border-radius: 16px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background-color: #900;
+}
+
+
+#hero {
+    text-align: center; 
+    font-family: 'Overlock'; 
+    padding: 2em;
+}
+
+span.author {
+    float: right;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    margin: 1.5em 0 0.5em 0;
+    line-height: 1.4em;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1.3em;
+    }
+    ol, ul {
+        padding: 0 1.5em;
+    }
+}
+
+a {
+    color: #900;
+    text-decoration: none;
+}
+
+.sc {
+    color: #766;
+    padding: 4px;
+    transition: all 1s;
+}
+
+.sc:hover {
+    color: #900;
+    -webkit-transform: rotate(11deg);
+    transform: scale(1.2);
+}
+
+.pure-menu-horizontal.pure-menu-scrollable {
+    padding: 0;
+}
+
+.pure-menu a, .pure-menu .pure-menu-heading {
+    white-space: normal;
+}
+
+#navbar .pure-menu-link {
+    text-align: center;
+    padding: 1em;
+}
+
+#sidebar .pure-menu {
+    background: #ddd;
+}
+
+#sidebar h3 {
+    text-align: center;
+}
+
+#sidebar div button {
+    font-size: 80%;
+    margin: 4px;
+}
+
+/* Syntax Highlighting */
+
+pre {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.8em;
+    line-height: 1.2em;
+    padding: 1em;
+}
+
+pre, code {
+    font-family: 'Menlo', 'Courier New', Courier, monospace;
+}
+
+.prettyprinted {
+    padding: 0.1em;
+    background-color: #f7f7d7;
+}
+
+.com {
+    color: #003366;
+}
+
+.lit {
+    color: #aa0000;
+}
+
+.pun, .opn, .clo {
+    color: #93a1a1;
+}
+
+.fun {
+    color: #006666;
+}
+
+.str, .atv {
+    color: #aa0000;
+}
+
+.kwd, .linenums .tag {
+    color: #af5f00;
+    font-weight: bold;
+}
+
+.typ, .atn, .dec, .var {
+    color: #006600;
+}
+
+.pln {
+    color: #222;
+}
+
+ol.linenums {
+    box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+    margin: 0;
+}
+
+ol.linenums li:before {
+    font-size: 0.5em;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+
+ol.linenums li {
+    padding-left: 4px;
+    color: #bebec5;
+    text-shadow: 0 1px 0 #fff;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+
+/* li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { } */
+
+/* Alternate shading for lines */
+
+/* li.L1,li.L3,li.L5,li.L7,li.L9 { } */
+
+/* Custom Styles */
+
+blockquote {
+    color: #636;
+    font-style: italic;
+    font-size: 1.2em;
+    line-height: 1.6em;
+}
+
+.pure-img {
+    margin: 0 auto;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pagination {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pagination-item {
+    margin: 0 2em;
+}

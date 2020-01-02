@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) 10 }}
+<div id="content" class="pure-u-1 pure-u-md-3-4 pure-u-sm-1">
+    {{ range .Paginator.Pages }}
+
+    <div class="pad">
+        {{- partial "render_single_article.html" . -}}
+    </div>
+    <div class="pad"></div>
+
+    {{ end }}
+
+    <div class="pagination">
+        {{ if $paginator.HasNext }}
+        <a class="pure-button pagination-item older" href="{{ $paginator.Next.URL }}">Older</a>
+        {{ else }}
+        <span class="pagination-item older">Older</span>
+        {{ end }}
+
+        {{ if $paginator.HasPrev }}
+        <a class="pure-button pagination-item newer" href="{{ $paginator.Prev.URL }}">Newer</a>
+        {{ else }}
+        <span class="pagination-item newer">Newer</span>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
