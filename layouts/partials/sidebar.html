@@ -11,7 +11,7 @@
         <h3>Latest Articles</h3>
         <div class="pure-menu pure-menu-open">
             <ul class="pure-menu-list">
-                {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
+                {{ range first 10 (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
                 <li class="pure-menu-item">
                     <a href="{{ .Permalink }}" class="pure-menu-link">{{ .Title }}<br>
                         <small>{{ .Description }}</small>

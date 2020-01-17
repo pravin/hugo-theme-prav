@@ -1,5 +1,7 @@
 <div id="navbar" class="pure-menu pure-menu-open pure-menu-horizontal pure-menu-scrollable">
-    <a href="/" class="pure-menu-heading">{{ .Site.Params.title }}</a>
+    <a href="/" class="pure-menu-heading">
+        {{ .Site.Title }} {{ .Site.Params.Title }}
+    </a>
     <ul class="pure-menu-list">
         <li class="pure-menu-item">
             <a href="/posts" class="pure-menu-link">

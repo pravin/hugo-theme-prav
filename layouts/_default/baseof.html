@@ -9,7 +9,7 @@
             <div class="pure-g">
                 {{- block "main" . }}{{- end }}
 
-                {{ if (or (eq .Page.Kind "page") (eq .URL "/")) }}
+                {{ if (or (eq .Page.Kind "page") (eq .RelPermalink "/")) }}
                 {{- block "sidebar" . }}
                     {{- partial "sidebar.html" . -}}
                 {{- end }}
