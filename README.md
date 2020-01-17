@@ -1,8 +1,10 @@
 # Hugo Theme Prav
 
+![Screenshot](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/screenshot.png)
+
 ## History
 
-This theme began it's life in early 2013, as the theme for my blog "[Thoughts on Engineering and Management](https://cto.me.uk)". Back then it was generated using [nanoc](https://nanoc.ws/). In 2018, I moved to [hugo](https://gohugo.io/) because of it's ability to hot-reload the website while I was working. Nanoc forced me to rebuild the site which took roughly 10-20 seconds, which quickly became a deal breaker.
+This theme began it's life in early 2013, as the theme for my blog "[Thoughts on Engineering and Management](https://cto.me.uk)". Back then it was generated using [nanoc](https://nanoc.ws/). In 2018, I moved to [hugo](https://gohugo.io/) because of it's ability to hot-reload the website while I was working.
 
 ## Principles
 
@@ -18,32 +20,20 @@ This is a two column theme with a navbar at the top and a sidebar to the right. 
 
 ### Beautiful tables and images through purecss.
 
-   Name | Age
---------|------
-    Bob | 27
-  Alice | 23
+![Beautiful tables](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/table.png)
 
 ### Syntax highlighting by pygments
 
 Set your pygments theme by setting,
 
-    pygmentsCodeFences = "true"
-    pygmentsStyle = "perldoc"
+```toml
+pygmentsCodeFences = "true"
+pygmentsStyle = "perldoc"
+```
 
 Example highlighted code,
 
-{{< highlight html >}}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
-{{< /highlight >}}
+![Example highlighted code](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/code.png)
 
 ### Update the about image
 
@@ -60,12 +50,14 @@ To enable comments, set your `disqusShortname` in config.toml. This will make co
 
 To enable a link to a social network in the header (top-right), enter the url. To disable it, just comment it out. This bit of code is located at `layouts\partials\menu.html`.
 
+![Social header](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/social.png)
+
 ## Configuration
 
 This is an example of the configuration file.
 
-{{< highlight toml >}}
-baseURL = "https://cto.me.uk/"
+```toml
+baseURL = "https://example.com/"
 languageCode = "en-gb"
 title = "Hugo Theme - Prav"
 theme = "prav"
@@ -73,15 +65,20 @@ theme = "prav"
 pygmentsCodeFences = "true"
 pygmentsStyle = "perldoc"
 
+# If you want to track using GA or use disqus for comments, uncomment the
+# below and add the right value
 #googleanalytics = ""
 #disqusShortname = ""
 
-# Below settings are used throughout the theme. Please update
+# The settings below are used throughout the theme.
+# Please change them!
 [params]
   title = "Hugo Theme - Prav"
   tagline = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   author = "Pravin Paratey"
 
+# If you do not want a social icon, just comment it out
+# Please update the following
 [social]
   email = "mailto:pravin@paratey.com"
   facebook = "https://www.facebook.com/pravin.paratey"
@@ -92,11 +89,12 @@ pygmentsStyle = "perldoc"
 
 
 # Set unsafe mode to allow markdownify to work with goldmark
+# This is important. Please do not delete. It is used to re-render markdown
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
-{{< /highlight >}}
+```
 
 ## In closing
 
