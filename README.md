@@ -60,32 +60,32 @@ This is an example of the configuration file.
 baseURL = "https://example.com/"
 languageCode = "en-gb"
 title = "Hugo Theme - Prav"
-theme = "prav"
+theme = "hugo-theme-prav"
 
 pygmentsCodeFences = "true"
 pygmentsStyle = "perldoc"
 
-# If you want to track using GA or use disqus for comments, uncomment the
-# below and add the right value
+# If you want to track using GA or use disqus for comments, uncomment the 
+# following and add the correct values
 #googleanalytics = ""
 #disqusShortname = ""
 
 # The settings below are used throughout the theme.
-# Please change them!
+# Please update!
 [params]
   title = "Hugo Theme - Prav"
   tagline = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   author = "Pravin Paratey"
 
 # If you do not want a social icon, just comment it out
-# Please update the following
+# Please update the example values!
 [social]
-  email = "mailto:pravin@paratey.com"
-  facebook = "https://www.facebook.com/pravin.paratey"
-  twitter = "http://twitter.com/pravin"
-  medium = "https://www.medium.com/@pravin"
-  github = "https://github.com/pravin"
-  linkedin = "http://uk.linkedin.com/in/pravinp"
+  email = "mailto:example@example.com"
+  facebook = "https://www.facebook.com/example"
+  twitter = "http://twitter.com/example"
+  medium = "https://www.medium.com/@example"
+  github = "https://github.com/example"
+  linkedin = "http://uk.linkedin.com/in/example"
 
 
 # Set unsafe mode to allow markdownify to work with goldmark
