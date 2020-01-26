@@ -3,7 +3,12 @@
     <meta name="theme-color" content="#000" />
     <title>
         {{ if .IsHome }}
-            {{ .Site.Title }} {{ .Site.Params.Title }} &middot; {{ .Site.Params.Tagline }}
+            {{ if .Site.Title }} 
+                {{ .Site.Title }} 
+            {{ else }}
+                {{ .Site.Params.Title }} 
+            {{ end }} 
+            &middot; {{ .Site.Params.Tagline }}
         {{ else }}
             {{ .Title }} &middot; {{ .Site.Title }} {{ .Site.Params.Title }}
         {{ end }}

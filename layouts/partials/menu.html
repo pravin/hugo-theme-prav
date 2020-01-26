@@ -1,6 +1,10 @@
 <div id="navbar" class="pure-menu pure-menu-open pure-menu-horizontal pure-menu-scrollable">
     <a href="/" class="pure-menu-heading">
-        {{ .Site.Title }} {{ .Site.Params.Title }}
+        {{ if .Site.Title }} 
+            {{ .Site.Title }} 
+        {{ else }}
+            {{ .Site.Params.Title }} 
+        {{ end }} 
     </a>
     <ul class="pure-menu-list">
         <li class="pure-menu-item">
