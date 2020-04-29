@@ -87,7 +87,7 @@ footer {
     padding: 1em;
 }
 
-article {
+article, div.list {
     padding: 0 2em;
     background: #eee url(/img/bg.png);
     border: 1px solid #999;
@@ -95,32 +95,30 @@ article {
     box-shadow: 0 0 5px #999;
 }
 
-article.home {
+div.list {
     margin: 0.4em;
-    padding: 2em 1.5em;
+    flex: 1;
+    padding: 0;
 }
 
-@media only screen and (max-width: 600px) {
-    article.home {
-        margin: 1px 0em;
-        border: none;
-    }
+div.list h3 {
+    margin-top: 0.5em;
 }
 
-article.home h3 {
-    margin-top: 0;
+div.list .pad {
+    padding: 0.5em 1em;
 }
 
-article.home time {
+div.list time {
     font-size: 0.8em;
     text-align: center;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     color: #222;
     background-color: #ddd;
+    margin:1px;
     float: right;
-    margin: -32px -24px;
     padding: 4px;
-    width: 36px;
+    width: 48px;
     box-shadow: 0 0 2px #666;
 }
 
@@ -259,68 +257,6 @@ pre, code {
     font-family: 'Menlo', 'Courier New', Courier, monospace;
 }
 
-.prettyprinted {
-    padding: 0.1em;
-    background-color: #f7f7d7;
-}
-
-.com {
-    color: #003366;
-}
-
-.lit {
-    color: #aa0000;
-}
-
-.pun, .opn, .clo {
-    color: #93a1a1;
-}
-
-.fun {
-    color: #006666;
-}
-
-.str, .atv {
-    color: #aa0000;
-}
-
-.kwd, .linenums .tag {
-    color: #af5f00;
-    font-weight: bold;
-}
-
-.typ, .atn, .dec, .var {
-    color: #006600;
-}
-
-.pln {
-    color: #222;
-}
-
-ol.linenums {
-    box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
-    margin: 0;
-}
-
-ol.linenums li:before {
-    font-size: 0.5em;
-}
-
-/* Specify class=linenums on a pre to get line numbering */
-
-ol.linenums li {
-    padding-left: 4px;
-    color: #bebec5;
-    text-shadow: 0 1px 0 #fff;
-}
-
-/* Specify class=linenums on a pre to get line numbering */
-
-/* li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { } */
-
-/* Alternate shading for lines */
-
-/* li.L1,li.L3,li.L5,li.L7,li.L9 { } */
 
 /* Custom Styles */
 

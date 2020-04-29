@@ -5,15 +5,19 @@
 </div>
 <div class="pure-g">
     {{ range .Data.Pages }}
-    <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-3">
-        <article class="home">
-            <time>{{ .Date.Format "Jan 2 2006" }}</time>
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-3" style="display:flex">
+        <div class="list">
             {{ if .Params.image }}
-            <img src="/img/feature/{{ .Params.image }}" class="pure-img" alt="{{ .Title }}">
+            <a href="{{ .Permalink }}" title="{{ .Title }}">
+                <img src="/img/feature/{{ .Params.image }}" class="pure-img" alt="{{ .Title }}">
+            </a>
             {{ end }}
-            <p>{{ .Description | markdownify }}</p>
-        </article>
+            <time>{{ .Date.Format "Jan 2 2006" }}</time>
+            <div class="pad">
+                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                <p>{{ .Description | markdownify }}</p>
+            </div>
+        </div>
     </div>
     {{ end }}
 </div>
