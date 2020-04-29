@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
     <!--<![endif]-->
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:300,300italic,700" type="text/css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:300,300italic,700&display=swap" type="text/css">
     <link href="//fonts.googleapis.com/css?family=Fira+Sans+Condensed:300&display=swap" rel="stylesheet">
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
 
@@ -32,4 +32,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="{{ hugo.Generator }}">
+    
+    <meta name="description" content="{{ .Description }}">
+    {{ if .Params.tags }}
+    <meta name="keywords" content="{{ delimit .Params.tags "," }}">
+    {{ end }}
+    <meta name="author" content="{{ .Site.Params.Author }}">
 </head>
