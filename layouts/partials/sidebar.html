@@ -4,8 +4,8 @@
         <a name="about"></a>
         <h3>About Me</h3>
         <div style="text-align: center;">
-            <img src="/img/author.png" alt="{{ .Site.Params.Author }}" class="pure-img" />
-            <p><em>{{ .Site.Params.Tagline }}</em></p>
+            <img src="{{ .Site.Params.AuthorImgPath }}" alt="{{ .Site.Params.Author }}" class="pure-img" />
+            <p><em>{{ .Site.Params.AuthorBlurb }}</em></p>
         </div>
 
         <h3>Latest Articles</h3>
@@ -22,11 +22,11 @@
         </div>
 
         <h3>Categories</h3>
-        <div style="text-align:center">
+        <div style="text-align:center" class="tags">
             {{ range $.Site.Taxonomies.tags.ByCount }}
             {{ if gt .Count 1 }}
-            <button href="/tags/{{ .Name }}" class="pure-button pure-button-primary"> {{ .Name }}
-                <small>({{ .Count }})</small></button>
+            <a href="/tags/{{ .Name }}" class="pure-button"> {{ .Name }}
+                <small>({{ .Count }})</small></a>
             {{ end }}
             {{end}}
         </div>
