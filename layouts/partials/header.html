@@ -38,4 +38,6 @@
     <meta name="keywords" content="{{ delimit .Params.tags "," }}">
     {{ end }}
     <meta name="author" content="{{ .Site.Params.Author }}">
+
+    {{- partial "custom_header.html" . -}}
 </head>

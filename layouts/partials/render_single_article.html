@@ -12,5 +12,5 @@
         <a href="/tags/{{ $name | urlize }}" class="pure-button">{{ $name }}</a>
         {{ end }}
     </div>
-    {{ replace .Content "<table>" "<table class='pure-table pure-table-striped'>" | markdownify}}
+    {{ replace .Content "<table>" "<table class='pure-table pure-table-striped'>" | safeHTML }}
 </article>
