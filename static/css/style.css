@@ -142,6 +142,7 @@ section.toc h3 {
 
 .tags {
     font-size: 0.8em;
+    font-family: "Fira Sans Condensed", sans-serif;
 }
 
 .tags .pure-button {
@@ -244,19 +245,25 @@ a {
 }
 
 /* Syntax Highlighting */
-
 pre {
+    padding: 1em;
+}
+pre, div.highlight {
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 0.8em;
+    font-size: 14px;
     line-height: 1.2em;
-    padding: 1em;
 }
 
 pre, code {
     font-family: 'Menlo', 'Courier New', Courier, monospace;
 }
 
+div.highlight pre {
+    border: 0;
+    margin: 0;
+    padding-right: 0;
+}
 
 /* Custom Styles */
 
