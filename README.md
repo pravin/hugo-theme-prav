@@ -39,7 +39,7 @@ Example highlighted code,
 
 To update the image shown in the sidebar, simply create a file called "author.png" in the `static/img/` folder. Alternatively, you can edit the path in `config.toml` file.
 
-### Feature images in archives
+### Feature images in archives
 
 Setting the image parameter in the yaml header sets a feature image which is displayed in the articles section. Note that the feature images should be present in the `static/img/feature/` folder. The frontmatter should contain something like,
 
