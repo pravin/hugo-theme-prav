@@ -37,18 +37,27 @@ Example highlighted code,
 
 ### Update the about image
 
-To update the image shown in the sidebar, simply create a file called "author.png" in the `static\img\` folder.
+To update the image shown in the sidebar, simply create a file called "author.png" in the `static/img/` folder. Alternatively, you can edit the path in `config.toml` file.
 
 ### Feature images in archives
-Setting the image parameter in the yaml header sets a feature image which is displayed in the articles section.
+
+Setting the image parameter in the yaml header sets a feature image which is displayed in the articles section. Note that the feature images should be present in the `static/img/feature/` folder. The frontmatter should contain something like,
+
+```yaml
+image: path-to-image.jpg
+```
+
+### Custom header and footer
+
+If you want to add custom code to the header or footer, create a file called `custom_header.html` or `custom_footer.html` under `layouts\partials` folder in the root folder of your hugo project. The contents of these files will be included in the header and footer.
 
 ### Comments by disqus
 
-To enable comments, set your `disqusShortname` in config.toml. This will make comments appear on all single article pages. This bit of code is located at `layouts\_default\single.html`.
+To enable comments, set your `disqusShortname` in config.toml. This will make comments appear on all single article pages. This bit of code is located at `layouts/_default/single.html`.
 
 ### Social
 
-To enable a link to a social network in the header (top-right), enter the url. To disable it, just comment it out. This bit of code is located at `layouts\partials\menu.html`.
+To enable a link to a social network in the header (top-right), enter the url. To disable it, just comment it out. This bit of code is located at `layouts/partials/menu.html`.
 
 ![Social header](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/social.png)
 
@@ -76,6 +85,8 @@ pygmentsStyle = "perldoc"
   title = "Hugo Theme - Prav"
   tagline = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   author = "Pravin Paratey"
+  authorImgPath = "/img/author.png"
+  authorBlurb = "Something about me"
 
 # If you do not want a social icon, just comment it out
 # Please update the example values!
