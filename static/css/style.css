@@ -251,6 +251,7 @@ pre {
 pre, div.highlight {
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 14px;
     line-height: 1.2em;
 }
 
