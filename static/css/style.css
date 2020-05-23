@@ -256,7 +256,7 @@ pre, div.highlight {
 }
 
 pre, code {
-    font-family: 'Menlo', 'Courier New', Courier, monospace;
+    font-family: monospace;
 }
 
 div.highlight pre {
