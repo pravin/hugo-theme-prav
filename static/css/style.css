@@ -254,6 +254,9 @@ pre, div.highlight {
     font-size: 13px;
     line-height: 1.2em;
 }
+code {
+    font-size: 13px;
+}
 
 pre, code {
     font-family: Monaco, Consolas, monospace;
