@@ -262,7 +262,7 @@ pre, code {
     font-family: Monaco, Consolas, monospace;
 }
 
-article > p > code {
+article > p code {
 	background: #e2e2e2;
 	padding: .1em .4em;
 	border-radius: .4em;
