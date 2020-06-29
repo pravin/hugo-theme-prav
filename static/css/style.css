@@ -259,7 +259,7 @@ code {
 }
 
 pre, code {
-    font-family: Monaco, Consolas, monospace;
+    font-family: Monaco, Courier, monospace;
 }
 
 article > p code {
