@@ -254,12 +254,10 @@ pre, div.highlight {
     font-size: 13px;
     line-height: 1.2em;
 }
-code {
-    font-size: 14px;
-}
 
 pre, code {
-    font-family: Monaco, Courier, monospace;
+    font-size: 14px !important;
+    font-family: Monaco, Courier, monospace !important;
 }
 
 article > :not(pre) code {
