@@ -32,15 +32,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="{{ hugo.Generator }}">
     
-    {{ if .Description }}
+    {{ if .Description -}}
     <meta name="description" content="{{ .Description }}">
-    {{ else }}
+    {{ else -}}
     <meta name="description" content="{{ .Site.Params.Tagline }}">
-    {{ end }}
+    {{ end -}}
 
-    {{ if .Params.tags }}
+    {{ if .Params.tags -}}
     <meta name="keywords" content="{{ delimit .Params.tags "," }}">
-    {{ end }}
+    {{ end -}}
     <meta name="author" content="{{ .Site.Params.Author }}">
 
     {{- partial "custom_header.html" . -}}
