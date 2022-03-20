@@ -2,16 +2,16 @@
     <meta charset="utf-8">
     <meta name="theme-color" content="#000" />
     <title>
-        {{ if .IsHome }}
-            {{ if .Site.Title }} 
-                {{ .Site.Title }} 
-            {{ else }}
-                {{ .Site.Params.Title }} 
-            {{ end }} 
-            &middot; {{ .Site.Params.Tagline }}
-        {{ else }}
-            {{ .Title }} &middot; {{ .Site.Title }} {{ .Site.Params.Title }}
-        {{ end }}
+        {{- if .IsHome -}}
+            {{ if .Site.Title -}} 
+                {{ .Site.Title -}} 
+            {{ else -}}
+                {{ .Site.Params.Title -}} 
+            {{ end -}} 
+            &middot; {{ .Site.Params.Tagline -}}
+        {{ else -}}
+            {{ .Title }} &middot; {{ .Site.Title }} {{ .Site.Params.Title -}}
+        {{- end -}}
     </title>
 
     <!-- Stylesheets -->
