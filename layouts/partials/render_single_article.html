@@ -5,7 +5,7 @@
 </div>
 {{ end }}
 <article>
-    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
     <div class="tags">
         {{ range .Params.tags }}
         {{ $name := . }}
