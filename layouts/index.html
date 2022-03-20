@@ -1,7 +1,8 @@
 {{ define "main" }}
 {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) 10 }}
 <div id="content" class="pure-u-1 pure-u-md-3-4 pure-u-sm-1">
-    {{ range .Paginator.Pages }}
+  <h1><center>Recent Posts</center></h1>
+  {{ range .Paginator.Pages }}
 
     <div class="pad">
         {{- partial "render_single_article.html" . -}}
