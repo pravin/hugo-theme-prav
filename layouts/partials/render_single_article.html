@@ -5,7 +5,11 @@
 </div>
 {{ end }}
 <article>
+    {{ if eq (.Scratch.Get "isMainPage") "true"  -}}
     <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ else -}}
+    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+    {{- end -}}
     <div class="tags">
         {{ range .Params.tags }}
         {{ $name := . }}

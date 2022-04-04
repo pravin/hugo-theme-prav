@@ -8,6 +8,7 @@
 
     {{ range .Paginator.Pages }}
 
+    {{ .Scratch.Set "isMainPage" "true" }}
     <div class="pad">
         {{- partial "render_single_article.html" . -}}
     </div>
