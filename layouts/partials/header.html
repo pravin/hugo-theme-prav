@@ -3,14 +3,14 @@
     <meta name="theme-color" content="#000" />
     <title>
         {{- if .IsHome -}}
-            {{ if .Site.Title -}} 
-                {{ .Site.Title -}} 
-            {{ else -}}
-                {{ .Site.Params.Title -}} 
-            {{ end -}} 
-            &middot; {{ .Site.Params.Tagline -}}
+        {{ if .Site.Title -}}
+        {{ .Site.Title -}}
         {{ else -}}
-            {{ .Title }} &middot; {{ .Site.Title }} {{ .Site.Params.Title -}}
+        {{ .Site.Params.Title -}}
+        {{ end -}}
+        &middot; {{ .Site.Params.Tagline -}}
+        {{ else -}}
+        {{ .Title }} &middot; {{ .Site.Title }} {{ .Site.Params.Title -}}
         {{- end -}}
     </title>
 
@@ -24,18 +24,20 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
     <!--<![endif]-->
     <link rel="stylesheet" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&family=Bitter:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&family=Bitter:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
 
     <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="{{ hugo.Generator }}">
-    
+
     {{ if .Description -}}
-    <meta name="description" content="{{ .Description }}">
+    <meta name="description" property="og:description" content="{{ .Description }}">
     {{ else -}}
-    <meta name="description" content="{{ .Site.Params.Tagline }}">
+    <meta name="description" property="og:description" content="{{ .Site.Params.Tagline }}">
     {{ end -}}
 
     {{ if .Params.tags -}}
@@ -43,7 +45,14 @@
     {{ end -}}
     <meta name="author" content="{{ .Site.Params.Author }}">
 
-    {{- partial "custom_header.html" . -}}
+    {{ if .Params.Previewimage -}}
+    <meta name="image" property="og:image" content="{{ .Params.Previewimage }}">
+    {{ else -}}
+    <meta name="image" property="og:image" content="{{ .Site.Params.AuthorImgPath }}">
+    {{ end }}
+
+    {{ "<!-- Any custom header goes here-->" | safeHTML }}
+    {{ partial "custom_header.html" . }}
 
     {{ template "_internal/google_analytics.html" . }}
 </head>
