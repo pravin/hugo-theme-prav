@@ -32,32 +32,39 @@
     <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="{{ hugo.Generator }}">
+    {{ hugo.Generator }}"
 
-    {{ if .Description -}}
-    <meta name="description" property="og:description" content="{{ .Description }}">
-    {{ else -}}
-    <meta name="description" property="og:description" content="{{ .Site.Params.Tagline }}">
-    {{ end }}
-
-    {{ "<!-- Twitter Specific Stuff-->" | safeHTML }}
-    <meta name="twitter:card" content="summary">
-    {{ if .Site.Social.twitteruser -}}
-    <meta name="twitter:creator" content="{{ .Site.Social.twitteruser }}">
-    {{ end }}
-    {{- if not .IsHome -}}
-    <meta name="title" property="twitter:title" content="{{ .Title }}">
-    {{ end }}
-
-    {{ if .Params.tags -}}
+    {{- if .Params.tags }}
     <meta name=" keywords" content="{{ delimit .Params.tags "," }}">
+    {{- end }}
+
+    {{ $descText := "" -}}
+    {{ if .Description -}}
+    {{$descText = .Description -}}
+    {{ else -}}
+    {{$descText = .Site.Params.Tagline -}}
     {{ end -}}
+
+    {{ $imageLink := "" -}}
+    {{ if .Description -}}
+    {{$imageLink = .Description -}}
+    {{ else -}}
+    {{$imageLink = .Site.Params.Tagline -}}
+    {{ end -}}
+
+    {{ "<!-- OpenGraph/Twitter Specific Stuff-->" | safeHTML }}
+    <meta name="twitter:card" content="summary">
+    <meta property=”og:type” content=”blog”>
+    <meta name="description" property="og:description" content="{{ $descText }}">
+    <meta property="og:image" content="{{ $imageLink }}">
     <meta name="author" content="{{ .Site.Params.Author }}">
 
-    {{ if .Params.Previewimage -}}
-    <meta name="image" property="og:image" content="{{ .Params.Previewimage }}">
-    {{ else -}}
-    <meta name="image" property="og:image" content="{{ .Site.Params.AuthorImgPath }}">
+    {{- if not .IsHome -}}
+    <meta property="og:title" content="{{ .Title }}">
+    {{ end -}}
+
+    {{- if .Site.Social.twitteruser -}}
+    <meta name="twitter:creator" content="{{ .Site.Social.twitteruser }}">
     {{ end }}
 
     {{ "<!-- Any custom header goes here-->" | safeHTML }}
