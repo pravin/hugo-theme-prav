@@ -57,6 +57,7 @@
     <meta property=”og:type” content=”blog”>
     <meta name="description" property="og:description" content="{{ $descText }}">
     <meta property="og:image" content="{{.Site.BaseURL}}{{ $imageLink }}">
+    <meta property="twitter:image" content="{{.Site.BaseURL}}{{ $imageLink }}">
     <meta name="author" content="{{ .Site.Params.Author }}">
 
     {{ if not .IsHome -}}
