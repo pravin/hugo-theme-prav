@@ -38,10 +38,19 @@
     <meta name="description" property="og:description" content="{{ .Description }}">
     {{ else -}}
     <meta name="description" property="og:description" content="{{ .Site.Params.Tagline }}">
-    {{ end -}}
+    {{ end }}
+
+    {{ "<!-- Twitter Specific Stuff-->" | safeHTML }}
+    <meta name="twitter:card" content="summary">
+    {{ if .Site.Social.twitteruser -}}
+    <meta name="twitter:creator" content="{{ .Site.Social.twitteruser }}">
+    {{ end }}
+    {{- if not .IsHome -}}
+    <meta name="title" property="twitter:title" content="{{ .Title }}">
+    {{ end }}
 
     {{ if .Params.tags -}}
-    <meta name="keywords" content="{{ delimit .Params.tags "," }}">
+    <meta name=" keywords" content="{{ delimit .Params.tags "," }}">
     {{ end -}}
     <meta name="author" content="{{ .Site.Params.Author }}">
 
