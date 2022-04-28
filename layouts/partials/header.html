@@ -46,10 +46,10 @@
     {{ end -}}
 
     {{ $imageLink := "" -}}
-    {{ if .Description -}}
-    {{$imageLink = .Description -}}
+    {{ if .Params.previewimage -}}
+    {{$imageLink = .Params.previewimage -}}
     {{ else -}}
-    {{$imageLink = .Site.Params.Tagline -}}
+    {{$imageLink = .Site.Params.authorImgPath -}}
     {{ end -}}
 
     {{ "<!-- OpenGraph/Twitter Specific Stuff-->" | safeHTML }}
@@ -59,7 +59,7 @@
     <meta property="og:image" content="{{ $imageLink }}">
     <meta name="author" content="{{ .Site.Params.Author }}">
 
-    {{- if not .IsHome -}}
+    {{ if not .IsHome -}}
     <meta property="og:title" content="{{ .Title }}">
     {{ end -}}
 
