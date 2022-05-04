@@ -56,7 +56,7 @@
     <meta name="twitter:card" content="summary">
     <meta property=”og:type” content=”blog”>
     <meta property="og:description" content="{{ $descText }}">
-    <meta property="og:image" content="http://friendgineers.rosenshein.org{{ $imageLink }}">
+    <meta property="og:image" content="{{ $imageLink | absURL }}">
     <meta name="author" content="{{ .Site.Params.Author }}">
 
     {{ if not .IsHome -}}
