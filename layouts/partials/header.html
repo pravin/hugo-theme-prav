@@ -54,9 +54,9 @@
 
     {{ "<!-- OpenGraph/Twitter Specific Stuff-->" | safeHTML }}
     <meta name="twitter:card" content="summary_large_image">
-    <meta property=”og:type” content=”blog”>
+    <meta name="type" property=”og:type” content=”blog”>
     <meta name="description" property="og:description" content="{{ $descText }}">
-    <meta property="og:image" content="{{ $imageLink }}">
+    <meta name="image" property="og:image" content="{{ $imageLink }}">
     <meta name="author" content="{{ .Site.Params.Author }}">
 
     {{ if not .IsHome -}}
