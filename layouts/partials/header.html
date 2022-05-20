@@ -3,14 +3,14 @@
     <meta name="theme-color" content="#000" />
     <title>
         {{- if .IsHome -}}
-            {{ if .Site.Title -}} 
-                {{ .Site.Title -}} 
-            {{ else -}}
-                {{ .Site.Params.Title -}} 
-            {{ end -}} 
-            &middot; {{ .Site.Params.Tagline -}}
+        {{ if .Site.Title -}}
+        {{ .Site.Title -}}
         {{ else -}}
-            {{ .Title }} &middot; {{ .Site.Title }} {{ .Site.Params.Title -}}
+        {{ .Site.Params.Title -}}
+        {{ end -}}
+        &middot; {{ .Site.Params.Tagline -}}
+        {{ else -}}
+        {{ .Title }} &middot; {{ .Site.Title }} {{ .Site.Params.Title -}}
         {{- end -}}
     </title>
 
@@ -24,26 +24,58 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
     <!--<![endif]-->
     <link rel="stylesheet" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&family=Bitter:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&family=Bitter:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
 
     <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="{{ hugo.Generator }}">
-    
+    {{ hugo.Generator }}
+
+    {{- if .Params.tags }}
+    <meta name="keywords" content="{{ delimit .Params.tags "," }}">
+    {{- end }}
+
+    {{ $descText := "" -}}
     {{ if .Description -}}
-    <meta name="description" content="{{ .Description }}">
+    {{$descText = .Description -}}
     {{ else -}}
-    <meta name="description" content="{{ .Site.Params.Tagline }}">
+    {{$descText = .Site.Params.Tagline -}}
     {{ end -}}
 
-    {{ if .Params.tags -}}
-    <meta name="keywords" content="{{ delimit .Params.tags "," }}">
+    {{ $imageLink := "" -}}
+    {{ if .Params.previewimage -}}
+    {{$imageLink = .Params.previewimage -}}
+    {{ else -}}
+    {{$imageLink = .Site.Params.authorImgPath -}}
     {{ end -}}
+
+    <!-- This block handles relative paths to the preview image -->
+    {{- if .File.Dir -}}
+    {{ if not (hasPrefix $imageLink "/") -}}
+    {{ $imageLink = path.Join .File.Dir $imageLink -}}
+    {{ end -}}
+    {{ end -}}
+
+    {{ "<!-- OpenGraph/Twitter Specific Stuff-->" | safeHTML }}
+    <meta name="twitter:card" content="summary">
+    <meta property=”og:type” content=”blog”>
+    <meta property="og:description" content="{{ $descText }}">
+    <meta property="og:image" content="{{ $imageLink | absURL }}">
     <meta name="author" content="{{ .Site.Params.Author }}">
 
-    {{- partial "custom_header.html" . -}}
+    {{ if not .IsHome -}}
+    <meta property="og:title" content="{{ .Title }}">
+    {{ end -}}
+
+    {{- if .Site.Social.twitteruser -}}
+    <meta name="twitter:creator" content="{{ .Site.Social.twitteruser }}">
+    {{ end }}
+
+    {{ "<!-- Any custom header goes here-->" | safeHTML }}
+    {{ partial "custom_header.html" . }}
 
     {{ template "_internal/google_analytics.html" . }}
 </head>
