@@ -52,6 +52,13 @@
     {{$imageLink = .Site.Params.authorImgPath -}}
     {{ end -}}
 
+    <!-- This block handles relative paths to the preview image -->
+    {{- if .File.Dir -}}
+    {{ if not (hasPrefix $imageLink "/") -}}
+    {{ $imageLink = path.Join .File.Dir $imageLink -}}
+    {{ end -}}
+    {{ end -}}
+
     {{ "<!-- OpenGraph/Twitter Specific Stuff-->" | safeHTML }}
     <meta name="twitter:card" content="summary">
     <meta property=”og:type” content=”blog”>
