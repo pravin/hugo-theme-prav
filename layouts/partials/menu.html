@@ -1,10 +1,10 @@
 <div id="navbar" class="pure-menu pure-menu-open pure-menu-horizontal pure-menu-scrollable">
     <a href="/" class="pure-menu-heading">
-        {{ if .Site.Title }} 
-            {{ .Site.Title }} 
+        {{ if .Site.Title }}
+        {{ .Site.Title }}
         {{ else }}
-            {{ .Site.Params.Title }} 
-        {{ end }} 
+        {{ .Site.Params.Title }}
+        {{ end }}
     </a>
     <ul class="pure-menu-list">
         <li class="pure-menu-item">
@@ -27,6 +27,12 @@
         </li>
     </ul>
     <ul class="pure-menu-list pull-right">
+
+        {{ "<!-- Any custom header goes here-->" | safeHTML }}
+        <li class="pure-menu-item">
+            {{ partial "custom_menu.html" . }}
+        </li>
+
         {{ if .Site.Social.github }}
         <li class="pure-menu-item">
             <a href="{{ .Site.Social.github }}" title="Github" class="pure-menu-link">
