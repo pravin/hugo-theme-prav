@@ -18,7 +18,7 @@ This theme is by no means complete. I have added to it over the last six years a
 
 This is a two column theme with a navbar at the top and a sidebar to the right. The navbar contains links to major pages and links to social networks. The sidebar contains an about section, a section with the last 10 posts and finally a section which lists tags used across your site.
 
-### Beautiful tables and images through purecss.
+### Beautiful tables and images through purecss
 
 ![Beautiful tables](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/table.png)
 
@@ -97,6 +97,7 @@ pygmentsStyle = "perldoc"
   medium = "https://www.medium.com/@example"
   github = "https://github.com/example"
   linkedin = "http://uk.linkedin.com/in/example"
+  mastodon = "https://mstdn.social/example"
 
 
 # Set unsafe mode to allow markdownify to work with goldmark
