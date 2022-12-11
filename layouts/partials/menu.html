@@ -33,6 +33,15 @@
             {{ partial "custom_menu.html" . }}
         </li>
 
+        {{ if .Site.Social.mastodon }}
+        <li class="pure-menu-item">
+            <a rel="me" href="{{ .Site.Social.mastodon }}" title="Mastodon" class="pure-menu-link">
+                <i class="fab fa-mastodon"></i>
+                <span class="hide">Mastodon</span>
+            </a>
+        </li>
+        {{ end }}
+
         {{ if .Site.Social.github }}
         <li class="pure-menu-item">
             <a href="{{ .Site.Social.github }}" title="Github" class="pure-menu-link">
