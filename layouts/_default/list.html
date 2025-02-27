@@ -5,17 +5,17 @@
 </div>
 <div class="pure-g">
     {{ if (eq .RelPermalink "/tags/") }}
-    <div class="pure-u-1" style="display:flex;">
-        <div class="pad">
-            <div style="text-align:center" class="tags">
-                {{ range $.Site.Taxonomies.tags.ByCount }}
-                <a href="/tags/{{ .Name }}" class="pure-button" style="font-size: {{math.Log (add 1 .Count) }}em;"> {{ .Name }}
-                    <small>({{ .Count }})</small></a>
-                {{end}}
-            </div>
+<div class="pure-u-1" style="display:flex;">
+    <div class="pad">
+        <div style="text-align:center" class="tags">
+            {{ range $.Site.Taxonomies.tags.ByCount }}
+            <a href="/tags/{{ .Name | urlize }}" class="pure-button" style="font-size: {{ mul 0.5 (add 1 (math.Log (add 1 .Count))) }}em;"> {{ .Name }}
+                <small>({{ .Count }})</small></a>
+            {{end}}
         </div>
     </div>
-    {{ else }}
+</div>
+{{ else }}
     {{ range .Data.Pages }}
     <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-3" style="display:flex">
         <div class="list">

@@ -11,7 +11,8 @@
         <h3>Latest Articles</h3>
         <div class="pure-menu pure-menu-open">
             <ul class="pure-menu-list">
-                {{ range first 10 (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
+                {{ $mainSections := .Site.Params.mainSections | default (slice "posts") }}
+                {{ range first 10 (where .Site.RegularPages "Type" "in" $mainSections) }}
                 <li class="pure-menu-item">
                     <a href="{{ .Permalink }}" class="pure-menu-link">{{ .Title }}<br>
                         <small>{{ .Description }}</small>
@@ -25,7 +26,7 @@
         <div style="text-align:center" class="tags">
             {{ range $.Site.Taxonomies.tags.ByCount }}
             {{ if gt .Count 1 }}
-            <a href="/tags/{{ .Name }}" class="pure-button"> {{ .Name }}
+            <a href="/tags/{{ .Name | urlize }}" class="pure-button"> {{ .Name }}
                 <small>({{ .Count }})</small></a>
             {{ end }}
             {{end}}

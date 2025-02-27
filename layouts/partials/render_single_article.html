@@ -1,7 +1,7 @@
 {{ if or (.Date) (ne .Params.Kind "page") }}
 <div class="date">
     <time pubdate="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-    <span class="author">by {{ .Site.Params.author }}</span>
+    <span class="author">by {{ .Params.author | default .Site.Params.author }}</span>
 </div>
 {{ end }}
 <article>

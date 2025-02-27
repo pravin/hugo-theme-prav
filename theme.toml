@@ -5,9 +5,8 @@ description = "Refined two column theme that's easy on the eyes"
 homepage = "https://github.com/pravin/hugo-theme-prav/"
 tags = ["website", "responsive", "disqus", "blog", "two-column"]
 features = ["posts", "comments"]
-min_version = "0.41"
+min_version = "0.101.0"
 
 [author]
   name = "Pravin Paratey"
   homepage = "https://cto.me.uk"
-
