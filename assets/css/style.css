@@ -71,9 +71,6 @@ table, img {
 }
 
 #navbar {
-    position: sticky;
-    top: 0;
-    z-index: 10;
     background: var(--nav-bg);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
@@ -96,6 +93,15 @@ table, img {
     font-size: 1.5em;
     text-transform: none;
     color: var(--text);
+}
+
+/* Stick to the top on wider screens; on phones the wrapped navbar is too tall to pin */
+@media (min-width: 48em) {
+    #navbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
 }
 
 /* Marks the page you are on */
@@ -164,7 +170,7 @@ table, img {
 
 @media only screen and (max-width: 600px) {
     .pad {
-        padding: 0.1em;
+        padding: 0.75em;
     }
 }
 
@@ -290,6 +296,17 @@ div.list time {
 
 span.author {
     float: right;
+}
+
+/* Keep jump-to headings clear of the sticky navbar */
+[id] {
+    scroll-margin-top: 4.5em;
+}
+
+@media (max-width: 48em) {
+    [id] {
+        scroll-margin-top: 1em;
+    }
 }
 
 h1, h2, h3 {
@@ -533,7 +550,7 @@ article table {
 }
 
 @media (max-width: 35.5em) {
-    article, div.list {
+    article {
         padding: 0 1em;
     }
 }

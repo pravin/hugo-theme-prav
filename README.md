@@ -1,8 +1,16 @@
 # Hugo Theme Prav
 
+A refined two column theme for Hugo that is easy on the eyes, with light and dark modes and a layout that works on phones.
+
 ![Screenshot](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/screenshot.png)
 
 ![Screenshot in dark mode](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/screenshot-dark.png)
+
+### On a phone
+
+![The theme on a phone, in light mode](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/mobile.png)
+
+![The theme on a phone, in dark mode](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/mobile-dark.png)
 
 ## History
 
@@ -12,17 +20,27 @@ This theme began it's life in early 2013, as the theme for my blog "[Thoughts on
 
 I have always believed in using as little computing resources as possible. This theme uses the excellent [purecss](https://purecss.io/) css library, which is tiny while still being quite functional. Icons are inline SVGs, so there is no icon font to download.
 
-The colours used have been chosen to be easy on the eyes, with just enough contrast to help with accessibility.
+The design is flat and quiet. Warm off-white and near-black surfaces, soft shadows and a single red accent keep the focus on your writing. Body text is limited to a comfortable line length, links are underlined, and keyboard focus is always visible. Colours have been chosen to be easy on the eyes, with enough contrast to help with accessibility.
 
 This theme is by no means complete. I have added to it over the last six years and will continue to do so. I hope you and the rest of the community will help in contributing to making this theme even better.
 
 ## Features
 
-This is a two column theme with a navbar at the top and a sidebar to the right. The navbar contains links to major pages and links to social networks. The sidebar contains an about section, a section with the last 10 posts and finally a section which lists tags used across your site.
+This is a two column theme with a navbar at the top and a sidebar to the right. The navbar contains links to major pages and links to social networks. It stays at the top of the screen as you scroll (on larger screens) and marks the page you are on. The sidebar contains an about section, a section with the last 10 posts and finally a section which lists tags used across your site. On small screens the sidebar moves below the article.
+
+### Article list
+
+Archive pages show posts as cards, with an optional feature image, the date and a short description. See [Feature images in archives](#feature-images-in-archives).
+
+![Article list in light mode](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/list.png)
+
+![Article list in dark mode](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/list-dark.png)
 
 ### Beautiful tables and images through purecss
 
-![Beautiful tables](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/table.png)
+Tables are styled with purecss, with striped rows and borders that follow light and dark mode. Wide tables scroll sideways on small screens instead of breaking the layout.
+
+![Tables in light and dark mode](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/table.png)
 
 ### Light and dark mode
 
@@ -49,17 +67,19 @@ Code is highlighted by Hugo's built-in highlighter (Chroma), with colours that f
 
 To use different styles, regenerate `assets/css/syntax.css` in your site with `hugo gen chromastyles --style=<name>`. The header of the theme's copy explains how the dark half is scoped.
 
+Each code block shows its language and has a copy button. The button needs JavaScript and the Clipboard API; without them the block still looks and works normally.
+
 Example highlighted code, in light and dark mode,
 
 ![Example highlighted code](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/code.png)
 
 ### Update the about image
 
-To update the image shown in the sidebar, create a file called `author.png` in your site's `static/img/` folder. Alternatively, set `params.authorImgPath` in your config.
+To update the image shown in the sidebar, create a file called `author.png` in your site's `static/img/` folder. Alternatively, set `params.authorImgPath` in your config. It is shown as a centred circle, so a square image works best.
 
 ### Feature images in archives
 
-Setting the `image` parameter in the front matter sets a feature image which is displayed in the articles list. The image can either be a [page resource](https://gohugo.io/content-management/page-resources/) (e.g. `content/posts/my-post/cover.jpg` in a page bundle) or a file in your site's `static/img/feature/` folder.
+Setting the `image` parameter in the front matter sets a feature image which is displayed at the top of the post's card in the articles list. Images are cropped to a wide banner, so keep the subject near the centre. The image can either be a [page resource](https://gohugo.io/content-management/page-resources/) (e.g. `content/posts/my-post/cover.jpg` in a page bundle) or a file in your site's `static/img/feature/` folder.
 
 ```yaml
 image: cover.jpg
@@ -102,7 +122,7 @@ Set `services.googleAnalytics.ID` in your config. The tracking code is only incl
 
 To show a link to a social network in the navbar (top-right), set its URL under `params.social`. To hide it, comment it out. Supported keys: `mastodon`, `bluesky`, `github`, `twitter`, `linkedin`, `medium`, `facebook` and `email`.
 
-![Social header](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/social.png)
+![Social header in light and dark mode](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/social.png)
 
 ## Configuration
 
