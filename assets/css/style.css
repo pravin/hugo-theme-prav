@@ -1,9 +1,68 @@
+/* Colours. Each value is light-dark(<light>, <dark>); the active scheme comes from the
+   visitor's OS setting, or from data-theme="light|dark" on <html> (set by the toggle). */
+:root {
+    color-scheme: light dark;
+
+    --text: light-dark(#111, #ddd5d5);
+    --text-muted: light-dark(#555, #a39b9b);
+    --text-subtle: light-dark(#444, #b5adad);
+    --link: light-dark(#900, #f07575);
+    --accent: light-dark(#900, #a31d1d);
+    --accent-text: #fff;
+    --quote: light-dark(#636, #d1a6da);
+
+    --page-bg: light-dark(#999, #161414);
+    --card-bg: light-dark(#eee, #242121);
+    --card-border: light-dark(#999, #3b3636);
+    --card-shadow: light-dark(#999, #000);
+    --panel-bg: light-dark(#ddd, #2d2929);
+    --panel-hover: light-dark(#eee, #383333);
+    --badge-bg: light-dark(#ddd, #343030);
+    --badge-text: light-dark(#222, #ddd5d5);
+    --text-shadow: light-dark(rgba(255, 255, 255, 0.5), transparent);
+
+    --nav-bg: #000;
+    --nav-text: #999;
+    --nav-hover-text: #dcc;
+    --nav-hover-bg: #433;
+    --nav-shadow: light-dark(#666, #000);
+
+    --code-bg: light-dark(#eed, #1a1717);
+    --code-border: light-dark(#ccc, #3b3636);
+    --table-border: light-dark(#cbcbcb, #3b3636);
+    --table-head-bg: light-dark(#e0e0e0, #322e2e);
+    --table-stripe-bg: light-dark(#f2f2f2, #2a2626);
+
+    /* Paper textures are only used in light mode */
+    --page-texture: url(../img/bg-dk.jpg);
+    --card-texture: url(../img/bg.png);
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --page-texture: none;
+    --card-texture: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --page-texture: none;
+        --card-texture: none;
+    }
+}
+
 html, body, button, input, select, textarea, .pure-g [class *="pure-u"] {
     font-family: Bitter, Palatino, serif;
 }
 
 body {
-    background: #999 url(../img/bg-dk.jpg);
+    color: var(--text);
+    background-color: var(--page-bg);
+    background-image: var(--page-texture);
 }
 
 table, img {
@@ -16,21 +75,30 @@ table, img {
     margin: 0 auto;
 }
 
+/* Icons are inline SVGs that take the colour of the surrounding text */
+.icon {
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    fill: currentColor;
+    vertical-align: -0.15em;
+}
+
 #navbar {
-    background: #000;
-    color: #999;
-    -webkit-box-shadow: 0 0 5px #666;
-    box-shadow: 0 0 5px #666;
+    background: var(--nav-bg);
+    color: var(--nav-text);
+    -webkit-box-shadow: 0 0 5px var(--nav-shadow);
+    box-shadow: 0 0 5px var(--nav-shadow);
     font-family: "Fira Sans Condensed", sans-serif;
 }
 
-#navbar a {
-    color: #999;
+#navbar a, #navbar button {
+    color: var(--nav-text);
 }
 
-#navbar a:hover {
-    color: #dcc;
-    background: #433;
+#navbar a:hover, #navbar a:focus, #navbar button:hover, #navbar button:focus {
+    color: var(--nav-hover-text);
+    background: var(--nav-hover-bg);
 }
 
 #navbar .pure-menu-heading {
@@ -38,16 +106,49 @@ table, img {
     text-transform: none;
 }
 
-.pure-menu-item .pure-menu-link i {
-    vertical-align: middle;
+.theme-toggle {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* Show the icon for the scheme you would switch to */
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+    display: inline-block;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle .icon-sun {
+        display: inline-block;
+    }
+
+    :root:not([data-theme="light"]) .theme-toggle .icon-moon {
+        display: none;
+    }
 }
 
 .pad {
     padding: 1em;
 }
 
+/* Visually hidden, but still read by screen readers */
 .hide {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
 
 @media only screen and (max-width: 600px) {
@@ -66,11 +167,15 @@ table, img {
 }
 
 #sidebar .pure-menu-item a {
-    color: #900;
+    color: var(--link);
 }
 
 #sidebar .pure-menu-item a small {
-    color: #444;
+    color: var(--text-subtle);
+}
+
+#sidebar .pure-menu-link:hover, #sidebar .pure-menu-link:focus {
+    background-color: var(--panel-hover);
 }
 
 footer {
@@ -82,10 +187,11 @@ footer {
 
 article, div.list {
     padding: 0 2em;
-    background: #eee url(../img/bg.png);
-    border: 1px solid #999;
-    -webkit-box-shadow: 0 0 5px #999;
-    box-shadow: 0 0 5px #999;
+    background-color: var(--card-bg);
+    background-image: var(--card-texture);
+    border: 1px solid var(--card-border);
+    -webkit-box-shadow: 0 0 5px var(--card-shadow);
+    box-shadow: 0 0 5px var(--card-shadow);
 }
 
 div.list {
@@ -105,30 +211,19 @@ div.list .pad {
 div.list time {
     font-size: 0.8em;
     text-align: center;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-    color: #222;
-    background-color: #ddd;
+    text-shadow: 0 1px 0 var(--text-shadow);
+    color: var(--badge-text);
+    background-color: var(--badge-bg);
     margin:1px;
     float: right;
     padding: 4px;
     width: 48px;
-    box-shadow: 0 0 2px #666;
-}
-
-section.toc h2 {
-    padding: 0;
-    margin: 0.5em 0;
-}
-
-section.toc h3 {
-    margin: 0;
-    display: inline-block;
-    vertical-align: middle;
+    box-shadow: 0 0 2px var(--card-shadow);
 }
 
 .date {
-    color: #555;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: var(--text-muted);
+    text-shadow: 0 1px 0 var(--text-shadow);
     font-size: 0.8em;
     padding-right: 1em;
 }
@@ -144,12 +239,11 @@ section.toc h3 {
 }
 
 .pure-button {
-    color: #fff;
+    color: var(--accent-text);
     border-radius: 16px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    background-color: #900;
+    background-color: var(--accent);
 }
-
 
 span.author {
     float: right;
@@ -189,20 +283,8 @@ h3 {
 }
 
 a {
-    color: #900;
+    color: var(--link);
     text-decoration: none;
-}
-
-.sc {
-    color: #766;
-    padding: 4px;
-    transition: all 1s;
-}
-
-.sc:hover {
-    color: #900;
-    -webkit-transform: rotate(11deg);
-    transform: scale(1.2);
 }
 
 .pure-menu-horizontal.pure-menu-scrollable {
@@ -218,25 +300,44 @@ a {
     padding: 1em;
 }
 
+/* On small screens let the navbar wrap onto centred rows instead of scrolling sideways */
+@media (max-width: 48em) {
+    #navbar.pure-menu-scrollable {
+        overflow: visible;
+        white-space: normal;
+        text-align: center;
+    }
+
+    #navbar .pure-menu-heading {
+        display: block;
+    }
+
+    #navbar .pull-right {
+        float: none;
+    }
+
+    #navbar .pure-menu-link {
+        padding: 0.75em;
+    }
+}
+
 #sidebar .pure-menu {
-    background: #ddd;
+    background: var(--panel-bg);
 }
 
 #sidebar h3 {
     text-align: center;
 }
 
-#sidebar div button {
-    font-size: 80%;
-    margin: 4px;
-}
-
-/* Syntax Highlighting */
+/* Code */
 pre {
     padding: 1em;
+    overflow-x: auto;
+    background-color: var(--code-bg);
 }
+
 pre, div.highlight {
-    border: 1px solid #ccc;
+    border: 1px solid var(--code-border);
     border-radius: 4px;
     font-size: 14px;
     line-height: 1.2em;
@@ -252,10 +353,28 @@ div.highlight pre {
     padding-right: 0;
 }
 
+/* Tables */
+.pure-table {
+    border-color: var(--table-border);
+}
+
+.pure-table td, .pure-table th {
+    border-color: var(--table-border);
+}
+
+.pure-table thead {
+    color: var(--text);
+    background-color: var(--table-head-bg);
+}
+
+.pure-table-striped tr:nth-child(2n-1) td {
+    background-color: var(--table-stripe-bg);
+}
+
 /* Custom Styles */
 
 blockquote {
-    color: #636;
+    color: var(--quote);
     font-style: italic;
     font-size: 1.2em;
     line-height: 1.6em;
@@ -285,10 +404,6 @@ blockquote {
 /* Keep wide content (code, tables, long URLs) from overflowing on small screens */
 article {
     overflow-wrap: break-word;
-}
-
-pre {
-    overflow-x: auto;
 }
 
 article table {

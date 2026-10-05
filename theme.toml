@@ -3,8 +3,8 @@ license = "MIT"
 licenselink = "https://github.com/pravin/hugo-theme-prav/blob/master/LICENSE"
 description = "Refined two column theme that's easy on the eyes"
 homepage = "https://github.com/pravin/hugo-theme-prav/"
-tags = ["blog", "responsive", "disqus", "two-column", "minimal", "light"]
-features = ["posts", "comments"]
+tags = ["blog", "responsive", "disqus", "two-column", "minimal", "light", "dark"]
+features = ["posts", "comments", "dark mode", "syntax highlighting"]
 min_version = "0.146.0"
 
 [author]

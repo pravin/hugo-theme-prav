@@ -2,6 +2,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000">
+    {{- if ne site.Params.themeToggle false }}
+    {{- /* Apply a saved light/dark choice before the page paints */}}
+    <script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+    {{- end }}
     <title>
         {{- if .IsHome -}}
             {{ site.Title | default site.Params.title }} &middot; {{ site.Params.tagline -}}
@@ -24,13 +28,12 @@
         integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css"
         integrity="sha384-zSu8LMfA4z+XX+S+3seN6uTKIYy1Qcfk0dNE+/0SHT5UgOHCnFeHjR16aowIFpII" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&family=Bitter:ital,wght@0,400;0,700;1,400&display=swap">
-    {{- with resources.Get "css/style.css" | minify | fingerprint }}
+    {{- $css := slice (resources.Get "css/style.css") (resources.Get "css/syntax.css") | resources.Concat "css/style.css" }}
+    {{- with $css | minify | fingerprint }}
     <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
     {{- end }}
     <link rel="icon" href="{{ site.Params.favicon | default "img/favicon.ico" | relURL }}">

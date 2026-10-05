@@ -1,0 +1,8 @@
+{{- /* Returns "light" or "dark" when params.defaultTheme forces a scheme, otherwise "" (follow the OS) */ -}}
+{{- $scheme := "" -}}
+{{- with site.Params.defaultTheme | lower -}}
+  {{- if in (slice "light" "dark") . -}}
+    {{- $scheme = . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $scheme -}}

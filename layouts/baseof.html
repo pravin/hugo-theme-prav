@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ partial "lang.html" . }}">
+{{- $htmlAttrs := printf "lang=%q" (partial "lang.html" .) }}
+{{- with partial "color_scheme.html" . }}{{ $htmlAttrs = printf "%s data-theme=%q" $htmlAttrs . }}{{ end }}
+<html {{ $htmlAttrs | safeHTMLAttr }}>
     {{- partial "header.html" . -}}
     <body>
         <div class="container">
@@ -19,6 +21,11 @@
             {{- partial "footer.html" . -}}
 
         </div>
+        {{- if ne site.Params.themeToggle false }}
+        {{- with resources.Get "js/theme.js" | minify | fingerprint }}
+        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+        {{- end }}
+        {{- end }}
         {{- partial "custom_footer.html" . -}}
     </body>
 </html>

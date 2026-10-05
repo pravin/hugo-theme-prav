@@ -5,20 +5,20 @@
         {{- range . }}
         <li class="pure-menu-item">
             <a href="{{ .URL }}" class="pure-menu-link">
-                {{- with .Params.icon }}<i class="{{ . }}" aria-hidden="true"></i> {{ end }}{{ .Name -}}
+                {{- with .Params.icon }}{{ partial "icon.html" . }} {{ end }}{{ .Name -}}
             </a>
         </li>
         {{- end }}
         {{- else }}
         {{- $posts := index site.MainSections 0 | default "posts" }}
         <li class="pure-menu-item">
-            <a href="{{ printf "%s/" $posts | relURL }}" class="pure-menu-link"><i class="fas fa-box-archive" aria-hidden="true"></i> Articles</a>
+            <a href="{{ printf "%s/" $posts | relURL }}" class="pure-menu-link">{{ partial "icon.html" "box-archive" }} Articles</a>
         </li>
         <li class="pure-menu-item">
-            <a href="{{ "tags/" | relURL }}" class="pure-menu-link"><i class="fas fa-comments" aria-hidden="true"></i> Categories</a>
+            <a href="{{ "tags/" | relURL }}" class="pure-menu-link">{{ partial "icon.html" "comments" }} Categories</a>
         </li>
         <li class="pure-menu-item">
-            <a href="{{ "about/" | relURL }}" class="pure-menu-link"><i class="fas fa-face-smile" aria-hidden="true"></i> About</a>
+            <a href="{{ "about/" | relURL }}" class="pure-menu-link">{{ partial "icon.html" "face-smile" }} About</a>
         </li>
         {{- end }}
     </ul>
@@ -29,21 +29,21 @@
 
         {{- /* [config key, label, icon]; order here is the display order */}}
         {{- $networks := slice
-            (slice "mastodon" "Mastodon" "fab fa-mastodon")
-            (slice "bluesky" "Bluesky" "fab fa-bluesky")
-            (slice "github" "GitHub" "fab fa-github")
-            (slice "twitter" "X (Twitter)" "fab fa-x-twitter")
-            (slice "linkedin" "LinkedIn" "fab fa-linkedin")
-            (slice "medium" "Medium" "fab fa-medium")
-            (slice "facebook" "Facebook" "fab fa-facebook")
-            (slice "email" "Email" "fas fa-envelope")
+            (slice "mastodon" "Mastodon" "mastodon")
+            (slice "bluesky" "Bluesky" "bluesky")
+            (slice "github" "GitHub" "github")
+            (slice "twitter" "X (Twitter)" "x-twitter")
+            (slice "linkedin" "LinkedIn" "linkedin")
+            (slice "medium" "Medium" "medium")
+            (slice "facebook" "Facebook" "facebook")
+            (slice "email" "Email" "envelope")
         }}
         {{- range $networks }}
         {{- $key := index . 0 }}{{ $label := index . 1 }}{{ $icon := index . 2 }}
         {{- with index (site.Params.social | default dict) $key }}
         <li class="pure-menu-item">
             <a href="{{ . }}" title="{{ $label }}" class="pure-menu-link" {{- if eq $key "mastodon" }} rel="me"{{ end }}>
-                <i class="{{ $icon }}" aria-hidden="true"></i>
+                {{ partial "icon.html" $icon }}
                 <span class="hide">{{ $label }}</span>
             </a>
         </li>
@@ -53,9 +53,18 @@
         {{- with site.Home.OutputFormats.Get "rss" }}
         <li class="pure-menu-item">
             <a href="{{ .RelPermalink }}" title="RSS Feed" class="pure-menu-link">
-                <i class="fas fa-square-rss" aria-hidden="true"></i>
+                {{ partial "icon.html" "square-rss" }}
                 <span class="hide">RSS Feed</span>
             </a>
+        </li>
+        {{- end }}
+
+        {{- if ne site.Params.themeToggle false }}
+        <li class="pure-menu-item">
+            <button type="button" id="theme-toggle" class="pure-menu-link theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                {{ partial "icon.html" (dict "name" "moon" "class" "icon-moon") }}
+                {{ partial "icon.html" (dict "name" "sun" "class" "icon-sun") }}
+            </button>
         </li>
         {{- end }}
     </ul>

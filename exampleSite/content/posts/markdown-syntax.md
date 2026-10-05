@@ -72,8 +72,7 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 
 #### Code block with backticks
 
-```
-html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,6 +84,17 @@ html
 </body>
 </html>
 ```
+#### Code block with syntax highlighting
+
+```python
+>>> import hashlib
+>>> url = 'https://example.com'
+>>> hashlib.md5(url.encode()).hexdigest()     # 32 chars
+'c984d06aafbecf6bc55569f964148ea3'
+>>> hashlib.sha256(url.encode()).hexdigest()  # 64 chars
+'100680ad546ce6a577f42f52df33b4cfdca756859e664b8d7de329b150d09ce9'
+```
+
 #### Code block indented with four spaces
 
     <!DOCTYPE html>

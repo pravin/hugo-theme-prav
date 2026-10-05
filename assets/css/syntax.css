@@ -1,0 +1,228 @@
+/* Syntax highlighting. Generated from Hugo's Chroma styles:
+ *   light: hugo gen chromastyles --style=perldoc
+ *   dark:  hugo gen chromastyles --style=github-dark
+ * Requires markup.highlight.noClasses = false in the site config. */
+
+.chroma { -webkit-text-size-adjust:none }
+.chroma .err { color:#a61717;background-color:#e3d2d2 }
+.chroma .lnlinks { outline:none;text-decoration:none;color:inherit }
+.chroma .lntd { vertical-align:top;padding:0;margin:0;border:0 }
+.chroma .lntable { border-spacing:0;padding:0;margin:0;border:0 }
+.chroma .hl { background-color:#d6d6c6 }
+.chroma .lnt { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f }
+.chroma .ln { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f }
+.chroma .line { display:flex }
+.chroma .k { color:#8b008b;font-weight:bold }
+.chroma .kc { color:#8b008b;font-weight:bold }
+.chroma .kd { color:#8b008b;font-weight:bold }
+.chroma .kn { color:#8b008b;font-weight:bold }
+.chroma .kp { color:#8b008b;font-weight:bold }
+.chroma .kr { color:#8b008b;font-weight:bold }
+.chroma .kt { color:#00688b;font-weight:bold }
+.chroma .na { color:#658b00 }
+.chroma .nc { color:#008b45;font-weight:bold }
+.chroma .no { color:#00688b }
+.chroma .nd { color:#707a7c }
+.chroma .ne { color:#008b45;font-weight:bold }
+.chroma .nn { color:#008b45;text-decoration:underline }
+.chroma .nt { color:#8b008b;font-weight:bold }
+.chroma .nb { color:#658b00 }
+.chroma .bp { color:#658b00 }
+.chroma .nv { color:#00688b }
+.chroma .vc { color:#00688b }
+.chroma .vg { color:#00688b }
+.chroma .vi { color:#00688b }
+.chroma .vm { color:#00688b }
+.chroma .nf { color:#008b45 }
+.chroma .fm { color:#008b45 }
+.chroma .s { color:#cd5555 }
+.chroma .sa { color:#cd5555 }
+.chroma .sb { color:#cd5555 }
+.chroma .sc { color:#cd5555 }
+.chroma .dl { color:#cd5555 }
+.chroma .sd { color:#cd5555 }
+.chroma .s2 { color:#cd5555 }
+.chroma .se { color:#cd5555 }
+.chroma .sh { color:#1c7e71;font-style:italic }
+.chroma .si { color:#cd5555 }
+.chroma .sx { color:#cb6c20 }
+.chroma .sr { color:#1c7e71 }
+.chroma .s1 { color:#cd5555 }
+.chroma .ss { color:#cd5555 }
+.chroma .m { color:#b452cd }
+.chroma .mb { color:#b452cd }
+.chroma .mf { color:#b452cd }
+.chroma .mh { color:#b452cd }
+.chroma .mi { color:#b452cd }
+.chroma .il { color:#b452cd }
+.chroma .mo { color:#b452cd }
+.chroma .ow { color:#8b008b }
+.chroma .c { color:#228b22 }
+.chroma .ch { color:#228b22 }
+.chroma .cm { color:#228b22 }
+.chroma .c1 { color:#228b22 }
+.chroma .cs { color:#8b008b;font-weight:bold }
+.chroma .cp { color:#1e889b }
+.chroma .cpf { color:#1e889b }
+.chroma .gd { color:#a00 }
+.chroma .ge { font-style:italic }
+.chroma .gr { color:#a00 }
+.chroma .gh { color:#000080;font-weight:bold }
+.chroma .gi { color:#0a0 }
+.chroma .go { color:#888 }
+.chroma .gp { color:#555 }
+.chroma .gs { font-weight:bold }
+.chroma .gu { color:#800080;font-weight:bold }
+.chroma .gt { color:#a00 }
+.chroma .gl { text-decoration:underline }
+.chroma .w { color:#bbb }
+
+/* Dark */
+:root[data-theme="dark"] .bg { color:#e6edf3 }
+:root[data-theme="dark"] .chroma { color:#e6edf3;-webkit-text-size-adjust:none }
+:root[data-theme="dark"] .chroma .err { color:#f85149;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .hl { background-color:#6e7681 }
+:root[data-theme="dark"] .chroma .k { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .kc { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .kd { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .kn { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .kp { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .kr { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .kt { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .nc { color:#f0883e;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .no { color:#79c0ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .nd { color:#d2a8ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .ni { color:#ffa657;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .ne { color:#f0883e;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .nl { color:#79c0ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .nn { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .nx { color:#e6edf3;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .py { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .nt { color:#7ee787;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .nv { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .vc { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .vg { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .vi { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .vm { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .nf { color:#d2a8ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .fm { color:#d2a8ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .l { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .ld { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .s { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .sa { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .sb { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .sc { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .dl { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .sd { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .s2 { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .se { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .sh { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .si { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .sx { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .sr { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .s1 { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .ss { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .m { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .mb { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .mf { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .mh { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .mi { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .il { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .mo { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .o { color:#ff7b72;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .ow { color:#ff7b72;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .or { color:#ff7b72;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .c { color:#8b949e;font-style:italic;font-weight:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .ch { color:#8b949e;font-style:italic;font-weight:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .cm { color:#8b949e;font-style:italic;font-weight:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .c1 { color:#8b949e;font-style:italic;font-weight:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .cs { color:#8b949e;font-weight:bold;font-style:italic;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .cp { color:#8b949e;font-weight:bold;font-style:italic;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .cpf { color:#8b949e;font-weight:bold;font-style:italic;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .gd { color:#ffa198;background-color:#490202;font-weight:normal;font-style:normal;text-decoration:none }
+:root[data-theme="dark"] .chroma .ge { font-style:italic;font-weight:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .gr { color:#ffa198;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .gh { color:#79c0ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .gi { color:#56d364;background-color:#0f5323;font-weight:normal;font-style:normal;text-decoration:none }
+:root[data-theme="dark"] .chroma .go { color:#8b949e;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .gp { color:#8b949e;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .gs { font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .gu { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .gt { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+:root[data-theme="dark"] .chroma .gl { text-decoration:underline;font-weight:normal;font-style:normal;background-color:transparent }
+:root[data-theme="dark"] .chroma .w { color:#6e7681;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .bg { color:#e6edf3 }
+    :root:not([data-theme="light"]) .chroma { color:#e6edf3;-webkit-text-size-adjust:none }
+    :root:not([data-theme="light"]) .chroma .err { color:#f85149;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .hl { background-color:#6e7681 }
+    :root:not([data-theme="light"]) .chroma .k { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .kc { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .kd { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .kn { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .kp { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .kr { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .kt { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .nc { color:#f0883e;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .no { color:#79c0ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .nd { color:#d2a8ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .ni { color:#ffa657;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .ne { color:#f0883e;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .nl { color:#79c0ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .nn { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .nx { color:#e6edf3;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .py { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .nt { color:#7ee787;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .nv { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .vc { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .vg { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .vi { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .vm { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .nf { color:#d2a8ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .fm { color:#d2a8ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .l { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .ld { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .s { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .sa { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .sb { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .sc { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .dl { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .sd { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .s2 { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .se { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .sh { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .si { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .sx { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .sr { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .s1 { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .ss { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .m { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .mb { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .mf { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .mh { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .mi { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .il { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .mo { color:#a5d6ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .o { color:#ff7b72;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .ow { color:#ff7b72;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .or { color:#ff7b72;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .c { color:#8b949e;font-style:italic;font-weight:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .ch { color:#8b949e;font-style:italic;font-weight:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .cm { color:#8b949e;font-style:italic;font-weight:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .c1 { color:#8b949e;font-style:italic;font-weight:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .cs { color:#8b949e;font-weight:bold;font-style:italic;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .cp { color:#8b949e;font-weight:bold;font-style:italic;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .cpf { color:#8b949e;font-weight:bold;font-style:italic;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .gd { color:#ffa198;background-color:#490202;font-weight:normal;font-style:normal;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .ge { font-style:italic;font-weight:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .gr { color:#ffa198;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .gh { color:#79c0ff;font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .gi { color:#56d364;background-color:#0f5323;font-weight:normal;font-style:normal;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .go { color:#8b949e;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .gp { color:#8b949e;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .gs { font-weight:bold;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .gu { color:#79c0ff;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .gt { color:#ff7b72;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+    :root:not([data-theme="light"]) .chroma .gl { text-decoration:underline;font-weight:normal;font-style:normal;background-color:transparent }
+    :root:not([data-theme="light"]) .chroma .w { color:#6e7681;font-weight:normal;font-style:normal;background-color:transparent;text-decoration:none }
+}

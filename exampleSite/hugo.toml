@@ -32,6 +32,10 @@ themesDir = "../.."
   mainSections = ["posts"]
   # Tags need at least this many posts to show in the sidebar
   sidebarTagMinCount = 2
+  # Colour scheme: "auto" follows the visitor's OS setting; "light" or "dark" forces one
+  defaultTheme = "auto"
+  # Show the light/dark toggle in the navbar
+  themeToggle = true
 
   # If you do not want a social icon, just comment it out
   # Please update the example values!
@@ -52,11 +56,12 @@ themesDir = "../.."
 #   pageRef = "/posts"
 #   weight = 10
 #   [menus.main.params]
-#     icon = "fas fa-box-archive"
+#     icon = "box-archive"
 
 [markup]
+  # The theme ships light and dark syntax colours, which need CSS classes
   [markup.highlight]
-    style = "perldoc"
+    noClasses = false
   # Allows raw HTML in markdown content and in markdownify'd descriptions.
   [markup.goldmark.renderer]
     unsafe = true

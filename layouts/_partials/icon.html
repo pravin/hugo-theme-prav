@@ -1,0 +1,18 @@
+{{- /*
+Renders an inline SVG icon from assets/icons/<name>.svg. Add your own icons to
+assets/icons/ in your site. Accepts a name ("github") or a dict ("name" "sun" "class" "icon-sun").
+A Font Awesome class such as "fab fa-github" is also accepted for convenience.
+*/ -}}
+{{- $name := . }}
+{{- $class := "" }}
+{{- if reflect.IsMap . }}
+  {{- $name = .name }}
+  {{- $class = .class | default "" }}
+{{- end }}
+{{- $name = index (split (strings.TrimSpace $name) " ") (sub (len (split (strings.TrimSpace $name) " ")) 1) | strings.TrimPrefix "fa-" }}
+{{- with resources.Get (printf "icons/%s.svg" $name) }}
+  {{- $attrs := printf `<svg class="icon icon-%s%s" aria-hidden="true" focusable="false" ` $name (cond (eq $class "") "" (printf " %s" $class)) }}
+  {{- replace .Content "<svg " $attrs | strings.TrimSpace | safeHTML }}
+{{- else }}
+  {{- warnf "prav theme: icon %q not found in assets/icons/" $name }}
+{{- end }}
