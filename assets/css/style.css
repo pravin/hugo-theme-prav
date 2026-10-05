@@ -3,39 +3,35 @@
 :root {
     color-scheme: light dark;
 
-    --text: light-dark(#111, #ddd5d5);
-    --text-muted: light-dark(#555, #a39b9b);
-    --text-subtle: light-dark(#444, #b5adad);
-    --link: light-dark(#900, #f07575);
-    --accent: light-dark(#900, #a31d1d);
+    --text: light-dark(#1f1a1a, #e9e2e2);
+    --text-muted: light-dark(#6a625e, #a39b9b);
+    --text-subtle: light-dark(#5b5350, #b5adad);
+    --link: light-dark(#8e1616, #f08a8a);
+    --accent: light-dark(#8e1616, #a31d1d);
     --accent-text: #fff;
-    --quote: light-dark(#636, #d1a6da);
+    --pill-bg: light-dark(#f1e4e1, #3a1e1e);
+    --pill-text: light-dark(#7a1414, #f3b4b4);
+    --quote: light-dark(#3a2f2f, #d9cfcf);
 
-    --page-bg: light-dark(#999, #161414);
-    --card-bg: light-dark(#eee, #242121);
-    --card-border: light-dark(#999, #3b3636);
-    --card-shadow: light-dark(#999, #000);
-    --panel-bg: light-dark(#ddd, #2d2929);
-    --panel-hover: light-dark(#eee, #383333);
-    --badge-bg: light-dark(#ddd, #343030);
-    --badge-text: light-dark(#222, #ddd5d5);
-    --text-shadow: light-dark(rgba(255, 255, 255, 0.5), transparent);
+    --page-bg: light-dark(#f6f3ef, #141212);
+    --card-bg: light-dark(#fffdfb, #1d1a1a);
+    --card-border: light-dark(#e6e0da, #322d2d);
+    --shadow-color: light-dark(rgba(40, 25, 20, 0.08), rgba(0, 0, 0, 0.45));
+    --panel-bg: light-dark(#fffdfb, #1d1a1a);
+    --panel-hover: light-dark(#f1ece7, #2a2626);
+    --badge-text: light-dark(#6a625e, #a39b9b);
 
-    --nav-bg: #000;
-    --nav-text: #999;
-    --nav-hover-text: #dcc;
-    --nav-hover-bg: #433;
-    --nav-shadow: light-dark(#666, #000);
+    --nav-bg: light-dark(rgba(255, 253, 251, 0.85), rgba(20, 18, 18, 0.85));
+    --nav-text: light-dark(#5b5350, #a39b9b);
+    --nav-hover-text: var(--text);
+    --nav-hover-bg: light-dark(#f1ece7, #2a2626);
+    --nav-border: light-dark(#e6e0da, #322d2d);
 
-    --code-bg: light-dark(#eed, #1a1717);
-    --code-border: light-dark(#ccc, #3b3636);
-    --table-border: light-dark(#cbcbcb, #3b3636);
-    --table-head-bg: light-dark(#e0e0e0, #322e2e);
-    --table-stripe-bg: light-dark(#f2f2f2, #2a2626);
-
-    /* Paper textures are only used in light mode */
-    --page-texture: url(../img/bg-dk.jpg);
-    --card-texture: url(../img/bg.png);
+    --code-bg: light-dark(#f6f1ec, #151313);
+    --code-border: light-dark(#e6e0da, #322d2d);
+    --table-border: light-dark(#e0d9d3, #3b3636);
+    --table-head-bg: light-dark(#f1ece7, #322e2e);
+    --table-stripe-bg: light-dark(#faf7f4, #231f1f);
 }
 
 :root[data-theme="light"] {
@@ -44,15 +40,6 @@
 
 :root[data-theme="dark"] {
     color-scheme: dark;
-    --page-texture: none;
-    --card-texture: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --page-texture: none;
-        --card-texture: none;
-    }
 }
 
 html, body, button, input, select, textarea, .pure-g [class *="pure-u"] {
@@ -62,7 +49,6 @@ html, body, button, input, select, textarea, .pure-g [class *="pure-u"] {
 body {
     color: var(--text);
     background-color: var(--page-bg);
-    background-image: var(--page-texture);
 }
 
 table, img {
@@ -85,11 +71,16 @@ table, img {
 }
 
 #navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     background: var(--nav-bg);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     color: var(--nav-text);
-    -webkit-box-shadow: 0 0 5px var(--nav-shadow);
-    box-shadow: 0 0 5px var(--nav-shadow);
+    border-bottom: 1px solid var(--nav-border);
     font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 400;
 }
 
 #navbar a, #navbar button {
@@ -104,6 +95,26 @@ table, img {
 #navbar .pure-menu-heading {
     font-size: 1.5em;
     text-transform: none;
+    color: var(--text);
+}
+
+/* Marks the page you are on */
+#navbar .pure-menu-link {
+    position: relative;
+}
+
+#navbar .pure-menu-link[aria-current="page"] {
+    color: var(--text);
+}
+
+#navbar .pure-menu-link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 1em;
+    right: 1em;
+    bottom: 0;
+    height: 2px;
+    background: var(--link);
 }
 
 .theme-toggle {
@@ -159,7 +170,7 @@ table, img {
 
 #content {
     margin: 0 auto;
-    line-height: 1.8em;
+    line-height: 1.65;
 }
 
 #content li {
@@ -168,6 +179,7 @@ table, img {
 
 #sidebar .pure-menu-item a {
     color: var(--link);
+    border-radius: 8px;
 }
 
 #sidebar .pure-menu-item a small {
@@ -188,42 +200,74 @@ footer {
 article, div.list {
     padding: 0 2em;
     background-color: var(--card-bg);
-    background-image: var(--card-texture);
     border: 1px solid var(--card-border);
-    -webkit-box-shadow: 0 0 5px var(--card-shadow);
-    box-shadow: 0 0 5px var(--card-shadow);
+    border-radius: 12px;
+    box-shadow: 0 1px 2px var(--shadow-color), 0 8px 24px var(--shadow-color);
+}
+
+/* Keep running text to a comfortable line length; code, tables and images can use the full card */
+article > :where(p, ul, ol, h1, h2, h3, h4, h5, h6, blockquote) {
+    max-width: 66ch;
+}
+
+article :where(p, li, blockquote) a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+article :where(p, li, blockquote) a:hover {
+    text-decoration-thickness: 2px;
 }
 
 div.list {
     margin: 0.4em;
     flex: 1;
     padding: 0;
+    overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+div.list:hover {
+    transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    div.list {
+        transition: none;
+    }
+
+    div.list:hover {
+        transform: none;
+    }
+}
+
+div.list img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
 }
 
 div.list h3 {
     margin-top: 0.5em;
+    font-size: 1.25em;
 }
 
 div.list .pad {
     padding: 0.5em 1em;
 }
 
+/* Date sits above the title */
 div.list time {
+    display: block;
+    padding: 0.8em 1.25em 0;
     font-size: 0.8em;
-    text-align: center;
-    text-shadow: 0 1px 0 var(--text-shadow);
     color: var(--badge-text);
-    background-color: var(--badge-bg);
-    margin:1px;
-    float: right;
-    padding: 4px;
-    width: 48px;
-    box-shadow: 0 0 2px var(--card-shadow);
 }
 
 .date {
     color: var(--text-muted);
-    text-shadow: 0 1px 0 var(--text-shadow);
     font-size: 0.8em;
     padding-right: 1em;
 }
@@ -239,10 +283,9 @@ div.list time {
 }
 
 .pure-button {
-    color: var(--accent-text);
+    color: var(--pill-text);
     border-radius: 16px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    background-color: var(--accent);
+    background-color: var(--pill-bg);
 }
 
 span.author {
@@ -250,13 +293,14 @@ span.author {
 }
 
 h1, h2, h3 {
-    font-weight: normal;
-    margin: 1.5em 0 0.5em 0;
-    line-height: 1.4em;
+    font-weight: 600;
+    margin: 1.4em 0 0.5em 0;
+    line-height: 1.25;
+    text-wrap: balance;
 }
 
 h1 {
-    font-size: 3em;
+    font-size: clamp(2em, 1.4em + 2vw, 2.6em);
 }
 
 h2 {
@@ -285,6 +329,11 @@ h3 {
 a {
     color: var(--link);
     text-decoration: none;
+}
+
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 2px;
 }
 
 .pure-menu-horizontal.pure-menu-scrollable {
@@ -321,12 +370,43 @@ a {
     }
 }
 
-#sidebar .pure-menu {
+#sidebar .pure-menu, #sidebar .panel {
     background: var(--panel-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    box-shadow: 0 1px 2px var(--shadow-color), 0 8px 24px var(--shadow-color);
+}
+
+#sidebar .panel {
+    padding: 1em;
+    text-align: center;
 }
 
 #sidebar h3 {
-    text-align: center;
+    margin: 1.8em 0 0.6em;
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-size: 0.85em;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+#sidebar h3:first-child {
+    margin-top: 0;
+}
+
+#sidebar .panel img {
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#sidebar .panel p {
+    margin: 0.6em 0 0;
 }
 
 /* Code */
@@ -338,7 +418,7 @@ pre {
 
 pre, div.highlight {
     border: 1px solid var(--code-border);
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 14px;
     line-height: 1.2em;
 }
@@ -351,6 +431,43 @@ div.highlight pre {
     border: 0;
     margin: 0;
     padding-right: 0;
+}
+
+/* Language label and copy button, added by js/code.js */
+div.highlight {
+    position: relative;
+}
+
+div.highlight.has-tools pre {
+    padding-top: 2.2em;
+}
+
+.code-lang, .code-copy {
+    position: absolute;
+    top: 0.5em;
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-size: 11px;
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+
+.code-lang {
+    left: 1em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.code-copy {
+    right: 0.75em;
+    padding: 1px 8px;
+    border: 1px solid var(--code-border);
+    border-radius: 6px;
+    background: var(--card-bg);
+    cursor: pointer;
+}
+
+.code-copy:hover {
+    color: var(--text);
 }
 
 /* Tables */
@@ -374,10 +491,13 @@ div.highlight pre {
 /* Custom Styles */
 
 blockquote {
+    margin-left: 0;
+    padding-left: 1em;
+    border-left: 3px solid var(--link);
     color: var(--quote);
     font-style: italic;
-    font-size: 1.2em;
-    line-height: 1.6em;
+    font-size: 1.1em;
+    line-height: 1.6;
 }
 
 .pure-img {

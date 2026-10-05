@@ -26,6 +26,9 @@
         <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
         {{- end }}
         {{- end }}
+        {{- with resources.Get "js/code.js" | minify | fingerprint }}
+        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+        {{- end }}
         {{- partial "custom_footer.html" . -}}
     </body>
 </html>

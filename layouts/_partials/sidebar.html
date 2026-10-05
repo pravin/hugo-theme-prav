@@ -2,9 +2,9 @@
 <aside id="sidebar" class="pure-u-1 pure-u-md-1-4 pure-u-sm-1">
     <div class="pad">
         <h3 id="about">About Me</h3>
-        <div style="text-align: center;">
+        <div class="panel">
             {{- with site.Params.authorImgPath }}
-            <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ site.Params.author }}" class="pure-img">
+            <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ site.Params.author }}">
             {{- end }}
             <p><em>{{ site.Params.authorBlurb | markdownify }}</em></p>
         </div>
@@ -24,7 +24,7 @@
 
         {{- with site.Taxonomies.tags }}
         <h3>Categories</h3>
-        <div style="text-align:center" class="tags">
+        <div class="panel tags">
             {{- $min := site.Params.sidebarTagMinCount | default 2 }}
             {{- range .ByCount }}
             {{- if ge .Count $min }}

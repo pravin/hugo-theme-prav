@@ -4,7 +4,7 @@
         {{- with site.Menus.main }}
         {{- range . }}
         <li class="pure-menu-item">
-            <a href="{{ .URL }}" class="pure-menu-link">
+            <a href="{{ .URL }}" class="pure-menu-link"{{ if and (ne .URL "/") (hasPrefix $.RelPermalink (.URL | relURL)) }} aria-current="page"{{ end }}>
                 {{- with .Params.icon }}{{ partial "icon.html" . }} {{ end }}{{ .Name -}}
             </a>
         </li>
@@ -12,13 +12,13 @@
         {{- else }}
         {{- $posts := index site.MainSections 0 | default "posts" }}
         <li class="pure-menu-item">
-            <a href="{{ printf "%s/" $posts | relURL }}" class="pure-menu-link">{{ partial "icon.html" "box-archive" }} Articles</a>
+            <a href="{{ printf "%s/" $posts | relURL }}" class="pure-menu-link"{{ if hasPrefix $.RelPermalink (printf "%s/" $posts | relURL) }} aria-current="page"{{ end }}>{{ partial "icon.html" "box-archive" }} Articles</a>
         </li>
         <li class="pure-menu-item">
-            <a href="{{ "tags/" | relURL }}" class="pure-menu-link">{{ partial "icon.html" "comments" }} Categories</a>
+            <a href="{{ "tags/" | relURL }}" class="pure-menu-link"{{ if hasPrefix $.RelPermalink ("tags/" | relURL) }} aria-current="page"{{ end }}>{{ partial "icon.html" "comments" }} Categories</a>
         </li>
         <li class="pure-menu-item">
-            <a href="{{ "about/" | relURL }}" class="pure-menu-link">{{ partial "icon.html" "face-smile" }} About</a>
+            <a href="{{ "about/" | relURL }}" class="pure-menu-link"{{ if hasPrefix $.RelPermalink ("about/" | relURL) }} aria-current="page"{{ end }}>{{ partial "icon.html" "face-smile" }} About</a>
         </li>
         {{- end }}
     </ul>

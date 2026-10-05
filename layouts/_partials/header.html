@@ -1,7 +1,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000">
+    <meta name="theme-color" content="#f6f3ef" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141212" media="(prefers-color-scheme: dark)">
     {{- if ne site.Params.themeToggle false }}
     {{- /* Apply a saved light/dark choice before the page paints */}}
     <script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
@@ -31,7 +32,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&family=Bitter:ital,wght@0,400;0,700;1,400&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;500&family=Bitter:ital,wght@0,400;0,600;0,700;1,400&display=swap">
     {{- $css := slice (resources.Get "css/style.css") (resources.Get "css/syntax.css") | resources.Concat "css/style.css" }}
     {{- with $css | minify | fingerprint }}
     <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
