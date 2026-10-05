@@ -1,0 +1,77 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000">
+    <title>
+        {{- if .IsHome -}}
+            {{ site.Title | default site.Params.title }} &middot; {{ site.Params.tagline -}}
+        {{ else -}}
+            {{ .Title }} &middot; {{ site.Title | default site.Params.title -}}
+        {{- end -}}
+    </title>
+    {{ hugo.Generator }}
+
+    {{- $descText := .Description | default site.Params.tagline }}
+    <meta name="description" content="{{ $descText }}">
+    <meta name="author" content="{{ site.Params.author }}">
+    {{- with .Params.tags }}
+    <meta name="keywords" content="{{ delimit . "," }}">
+    {{- end }}
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css"
+        integrity="sha384-zSu8LMfA4z+XX+S+3seN6uTKIYy1Qcfk0dNE+/0SHT5UgOHCnFeHjR16aowIFpII" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&family=Bitter:ital,wght@0,400;0,700;1,400&display=swap">
+    {{- with resources.Get "css/style.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end }}
+    <link rel="icon" href="{{ site.Params.favicon | default "img/favicon.ico" | relURL }}">
+
+    {{- range .AlternativeOutputFormats }}
+    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+    {{- end }}
+
+    {{- /* Preview image: page param, then author image. Relative paths resolve against the page directory */}}
+    {{- $imageLink := .Params.previewimage | default site.Params.authorImgPath }}
+    {{- if and $imageLink (not (hasPrefix $imageLink "http")) }}
+    {{- if hasPrefix $imageLink "/" }}
+    {{- $imageLink = strings.TrimPrefix "/" $imageLink }}
+    {{- else }}
+    {{- with .File }}{{ $imageLink = path.Join .Dir $imageLink }}{{ end }}
+    {{- end }}
+    {{- end }}
+
+    <!-- OpenGraph/Twitter -->
+    <meta property="og:site_name" content="{{ site.Title }}">
+    <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+    <meta property="og:description" content="{{ $descText }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    {{- with $imageLink }}
+    <meta property="og:image" content="{{ . | absURL }}">
+    {{- end }}
+    {{- if and .IsPage (not .Date.IsZero) }}
+    <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+    {{- end }}
+    <meta name="twitter:card" content="summary">
+    {{- with site.Params.social.twitteruser }}
+    <meta name="twitter:creator" content="{{ . }}">
+    {{- end }}
+    {{- with site.Params.social.mastodon }}
+    <link rel="me" href="{{ . }}">
+    {{- end }}
+
+    {{ partial "custom_header.html" . }}
+
+    {{- if hugo.IsProduction }}
+    {{ partial "google_analytics.html" . }}
+    {{- end }}
+</head>

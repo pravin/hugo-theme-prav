@@ -1,0 +1,62 @@
+baseURL = "https://example.com/"
+locale = "en-GB"
+title = "Hugo Theme - Prav"
+theme = "hugo-theme-prav"
+# Lets you run `hugo server` from inside exampleSite/ without copying the theme.
+# Remove this line in your own site.
+themesDir = "../.."
+
+# Optional. Supports {year}, e.g. "&copy; {year} Your Name"
+# copyright = ""
+
+[pagination]
+  pagerSize = 10
+
+# If you want to track using GA or use disqus for comments, uncomment the
+# following and add the correct values. GA is only included in production builds.
+[services]
+  [services.disqus]
+    # shortname = ""
+  [services.googleAnalytics]
+    # ID = "G-XXXXXXXXXX"
+
+# The settings below are used throughout the theme.
+# Please update!
+[params]
+  title = "Hugo Theme - Prav"
+  tagline = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  author = "Pravin Paratey"
+  authorImgPath = "/img/author.png"
+  authorBlurb = "Something about me"
+  # Which sections appear on the home page, sidebar and RSS feed
+  mainSections = ["posts"]
+  # Tags need at least this many posts to show in the sidebar
+  sidebarTagMinCount = 2
+
+  # If you do not want a social icon, just comment it out
+  # Please update the example values!
+  [params.social]
+    email = "mailto:example@example.com"
+    mastodon = "https://mstdn.social/@example"
+    bluesky = "https://bsky.app/profile/example.com"
+    github = "https://github.com/example"
+    twitter = "https://x.com/example"
+    linkedin = "https://www.linkedin.com/in/example"
+    medium = "https://medium.com/@example"
+    facebook = "https://www.facebook.com/example"
+    # twitteruser = "@example"
+
+# Optional: replace the default Articles / Categories / About links
+# [[menus.main]]
+#   name = "Articles"
+#   pageRef = "/posts"
+#   weight = 10
+#   [menus.main.params]
+#     icon = "fas fa-box-archive"
+
+[markup]
+  [markup.highlight]
+    style = "perldoc"
+  # Allows raw HTML in markdown content and in markdownify'd descriptions.
+  [markup.goldmark.renderer]
+    unsafe = true

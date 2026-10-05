@@ -1,0 +1,24 @@
+{{- /* Expects a dict: "page" (the page to render), "isList" (true when shown in a list of posts) */ -}}
+{{- with .page }}
+{{- if and (not .Date.IsZero) (in site.MainSections .Type) }}
+<div class="date">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+    <span class="author">by {{ .Params.author | default site.Params.author }}</span>
+</div>
+{{- end }}
+<article>
+    {{- if $.isList }}
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    {{- else }}
+    <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+    {{- end }}
+    {{- with .GetTerms "tags" }}
+    <div class="tags">
+        {{- range . }}
+        <a href="{{ .RelPermalink }}" class="pure-button">{{ .LinkTitle }}</a>
+        {{- end }}
+    </div>
+    {{- end }}
+    {{ .Content }}
+</article>
+{{- end }}

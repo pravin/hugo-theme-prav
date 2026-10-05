@@ -1,0 +1,16 @@
+{{ define "main" }}
+<!-- CONTENT -->
+<div class="pure-u-1">
+    <h1 style="text-align: center">~ {{ .Title | humanize }} ~</h1>
+</div>
+<div class="pure-u-1" style="display:flex;">
+    <div class="pad">
+        <div style="text-align:center" class="tags">
+            {{- range .Data.Terms.ByCount }}
+            <a href="{{ .Page.RelPermalink }}" class="pure-button" style="font-size: {{ mul 0.5 (add 1 (math.Log (add 1 .Count))) }}em;">{{ .Page.LinkTitle }}
+                <small>({{ .Count }})</small></a>
+            {{- end }}
+        </div>
+    </div>
+</div>
+{{ end }}

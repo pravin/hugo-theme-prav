@@ -1,0 +1,9 @@
+{{- /* Language.LanguageCode was replaced by Language.Locale in Hugo v0.158.0 */ -}}
+{{- $lang := "" -}}
+{{- if ge hugo.Version "0.158.0" -}}
+  {{- $lang = site.Language.Locale -}}
+{{- else -}}
+  {{- $lang = site.Language.LanguageCode -}}
+{{- end -}}
+{{- $lang = $lang | default site.Language.Lang | default "en" -}}
+{{- return $lang -}}

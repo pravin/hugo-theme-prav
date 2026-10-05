@@ -3,7 +3,7 @@ html, body, button, input, select, textarea, .pure-g [class *="pure-u"] {
 }
 
 body {
-    background: #999 url(/img/bg-dk.jpg);
+    background: #999 url(../img/bg-dk.jpg);
 }
 
 table, img {
@@ -36,13 +36,6 @@ table, img {
 #navbar .pure-menu-heading {
     font-size: 1.5em;
     text-transform: none;
-}
-
-#blurb {
-    padding: 21px 0 21px 120px;
-    font-style: italic;
-    text-shadow: 0 1px 0 rgba(225, 225, 225, 0.5);
-    background: url(/img/blurb-arrow.png) 60px -5px no-repeat;
 }
 
 .pure-menu-item .pure-menu-link i {
@@ -89,7 +82,7 @@ footer {
 
 article, div.list {
     padding: 0 2em;
-    background: #eee url(/img/bg.png);
+    background: #eee url(../img/bg.png);
     border: 1px solid #999;
     -webkit-box-shadow: 0 0 5px #999;
     box-shadow: 0 0 5px #999;
@@ -157,12 +150,6 @@ section.toc h3 {
     background-color: #900;
 }
 
-
-#hero {
-    text-align: center; 
-    font-family: 'Overlock'; 
-    padding: 2em;
-}
 
 span.author {
     float: right;
@@ -293,4 +280,25 @@ blockquote {
 
 .pagination-item {
     margin: 0 2em;
+}
+
+/* Keep wide content (code, tables, long URLs) from overflowing on small screens */
+article {
+    overflow-wrap: break-word;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+article table {
+    display: block;
+    overflow-x: auto;
+    width: max-content;
+}
+
+@media (max-width: 35.5em) {
+    article, div.list {
+        padding: 0 1em;
+    }
 }

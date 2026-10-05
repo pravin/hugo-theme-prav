@@ -22,13 +22,13 @@ This is a two column theme with a navbar at the top and a sidebar to the right. 
 
 ![Beautiful tables](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/table.png)
 
-### Syntax highlighting by pygments
+### Syntax highlighting
 
-Set your pygments theme by setting,
+Code is highlighted by Hugo's built-in highlighter (Chroma). Pick a style in your site config,
 
 ```toml
-pygmentsCodeFences = "true"
-pygmentsStyle = "perldoc"
+[markup.highlight]
+  style = "perldoc"
 ```
 
 Example highlighted code,
@@ -37,76 +37,100 @@ Example highlighted code,
 
 ### Update the about image
 
-To update the image shown in the sidebar, simply create a file called "author.png" in the `static/img/` folder. Alternatively, you can edit the path in `config.toml` file.
+To update the image shown in the sidebar, create a file called `author.png` in your site's `static/img/` folder. Alternatively, set `params.authorImgPath` in your config.
 
 ### Feature images in archives
 
-Setting the image parameter in the yaml header sets a feature image which is displayed in the articles section. Note that the feature images should be present in the `static/img/feature/` folder. The frontmatter should contain something like,
+Setting the `image` parameter in the front matter sets a feature image which is displayed in the articles list. The image can either be a [page resource](https://gohugo.io/content-management/page-resources/) (e.g. `content/posts/my-post/cover.jpg` in a page bundle) or a file in your site's `static/img/feature/` folder.
 
 ```yaml
-image: path-to-image.jpg
+image: cover.jpg
 ```
 
-### Custom header and footer
+### Menu
 
-If you want to add custom code to the header or footer, create a file called `custom_header.html` or `custom_footer.html` under `layouts\partials` folder in the root folder of your hugo project. The contents of these files will be included in the header and footer.
+By default the navbar shows Articles, Categories and About. To change these, define a `main` menu in your config. Each entry can have an optional Font Awesome icon,
+
+```toml
+[[menus.main]]
+  name = "Articles"
+  pageRef = "/posts"
+  weight = 10
+  [menus.main.params]
+    icon = "fas fa-box-archive"
+```
+
+### Custom header, footer and menu
+
+To add custom code to the `<head>`, the end of the page, or the right side of the navbar, create `custom_header.html`, `custom_footer.html` or `custom_menu.html` in your site's `layouts/_partials/` folder.
+
+### Custom styles
+
+To override the stylesheet, copy `assets/css/style.css` from the theme to `assets/css/style.css` in your site and edit it. It is minified and fingerprinted automatically.
 
 ### Comments by disqus
 
-To enable comments, set your `disqusShortname` in config.toml. This will make comments appear on all single article pages. This bit of code is located at `layouts/_default/single.html`.
+To enable comments, set `services.disqus.shortname` in your config. Comments appear on all single pages, and can be turned off for a page with `disableComments: true` in its front matter.
+
+### Google Analytics
+
+Set `services.googleAnalytics.ID` in your config. The tracking code is only included in production builds (`hugo`, not `hugo server`).
 
 ### Social
 
-To enable a link to a social network in the header (top-right), enter the url. To disable it, just comment it out. This bit of code is located at `layouts/partials/menu.html`.
+To show a link to a social network in the navbar (top-right), set its URL under `params.social`. To hide it, comment it out. Supported keys: `mastodon`, `bluesky`, `github`, `twitter`, `linkedin`, `medium`, `facebook` and `email`.
 
 ![Social header](https://raw.githubusercontent.com/pravin/hugo-theme-prav/master/images/social.png)
 
 ## Configuration
 
-This is an example of the configuration file.
+This theme requires Hugo v0.146.0 or later. A complete example lives in [`exampleSite/hugo.toml`](exampleSite/hugo.toml). To try it,
+
+```sh
+cd exampleSite
+hugo server
+```
+
+A minimal `hugo.toml`,
 
 ```toml
 baseURL = "https://example.com/"
-languageCode = "en-gb"
+locale = "en-GB"
 title = "Hugo Theme - Prav"
 theme = "hugo-theme-prav"
 
-pygmentsCodeFences = "true"
-pygmentsStyle = "perldoc"
+[services.disqus]
+  # shortname = ""
+[services.googleAnalytics]
+  # ID = "G-XXXXXXXXXX"
 
-# If you want to track using GA or use disqus for comments, uncomment the 
-# following and add the correct values
-#googleanalytics = ""
-#disqusShortname = ""
-
-# The settings below are used throughout the theme.
-# Please update!
 [params]
   title = "Hugo Theme - Prav"
   tagline = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   author = "Pravin Paratey"
   authorImgPath = "/img/author.png"
   authorBlurb = "Something about me"
+  mainSections = ["posts"]
 
-# If you do not want a social icon, just comment it out
-# Please update the example values!
-[social]
-  email = "mailto:example@example.com"
-  facebook = "https://www.facebook.com/example"
-  twitter = "http://twitter.com/example"
-  medium = "https://www.medium.com/@example"
-  github = "https://github.com/example"
-  linkedin = "http://uk.linkedin.com/in/example"
-  mastodon = "https://mstdn.social/example"
+  [params.social]
+    email = "mailto:example@example.com"
+    mastodon = "https://mstdn.social/@example"
+    github = "https://github.com/example"
 
-
-# Set unsafe mode to allow markdownify to work with goldmark
-# This is important. Please do not delete. It is used to re-render markdown
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+# Allows raw HTML in content and in markdownified descriptions
+[markup.goldmark.renderer]
+  unsafe = true
 ```
+
+## Upgrading from older versions of this theme
+
+* **Hugo v0.146.0 or later is required.**
+* Move the `[social]` section to `[params.social]`. Hugo no longer supports a top-level `social` key.
+* Replace `googleAnalytics = "..."` with `[services.googleAnalytics] ID = "..."`, and `disqusShortname = "..."` with `[services.disqus] shortname = "..."`.
+* Replace `pygmentsCodeFences` / `pygmentsStyle` with `[markup.highlight] style = "..."`.
+* Replace `paginate = N` with `[pagination] pagerSize = N`.
+* If you overrode `static/css/style.css`, move your copy to `assets/css/style.css`.
+* Custom partials in `layouts/partials/` still work, but `layouts/_partials/` is the new location.
 
 ## In closing
 

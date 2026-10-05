@@ -1,0 +1,13 @@
+<div class="pure-g">
+    <footer class="pure-u-1 pure-u-md-1 pure-u-sm-1">
+        {{- with site.Copyright }}
+        <p>{{ replace . "{year}" (now.Format "2006") | markdownify }}</p>
+        {{- else }}
+        <p>This page and its contents are copyright &copy; {{ now.Format "2006" }},
+            <a href="{{ site.Home.Permalink }}">{{ site.Params.author }}</a>.
+        </p>
+        {{- end }}
+        <p><a href="https://github.com/pravin/hugo-theme-prav">Theme Prav</a> by <a href="https://cto.me.uk">Pravin
+                Paratey</a></p>
+    </footer>
+</div>
