@@ -1,0 +1,5 @@
+# Theme configuration, merged into the site's config by Hugo.
+# Declares the Hugo versions this theme supports (used by themes.gohugo.io).
+[module]
+  [module.hugoVersion]
+    min = "0.146.0"
